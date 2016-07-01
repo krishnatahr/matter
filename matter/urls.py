@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from rssfeeds.views import start_crawl
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^yarr/', yarr.urls),
+    url(r'^crawl/', start_crawl, name='crawl')
 ]

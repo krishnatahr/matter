@@ -1,7 +1,12 @@
 from django.shortcuts import render
 
-from rssfeeds.models import Category, RssFeeds, NewsFeeds
+from rssfeeds.models import Category, RssFeed, NewsFeed
+from django.http.response import HttpResponse
+from django.core.exceptions import ObjectDoesNotExist
+from time import mktime
+from datetime import datetime
 import feedparser
+import traceback
 
 
 def add_rss(request):
@@ -14,44 +19,49 @@ def store_new_story(stories, rss):
         hash_id = hash(story.link)
         news = None
         try:
-            news = NewsFeeds.objects.get(hash_id=hash_id)
+            news = NewsFeed.objects.get(hash_id=hash_id)
         except ObjectDoesNotExist:
-            news = NewsFeeds()
+            news = NewsFeed()
             count += 1
         news.title = story.title
-        news.image_url = story.image
+        news.image_url = story.image if 'image' in story else ''
         news.link_url = story.link
         news.description = story.summary
-        news.puplished = story.publised
+        news.puplished = datetime.fromtimestamp(mktime(story.published_parsed))
         news.hash_id = hash_id
         news.rss = rss
+        news.save()
         if not category in news.categories.all():
             news.categories.add(category)
-        news.save()
+            news.save()
     if count:
-        return "%d new stor(%s) added" %(count, 'y' if count==1 else 'ies')
+        return "%d new stor(%s) added" %(count, 'y' if count==1 else 'ies'), count
     else:
-        retunr 'No new story found'
+        return 'No new story found', count
 
 
-def start_crawl():
-    feeds = RssFeeds.objects.all()
+def start_crawl(request):
+    feeds = RssFeed.objects.all()
+    count = 0
     for feed in feeds:
         fp = None
         try:
             fp = feedparser.parse(feed.rss)
             if fp.status != 200 and fb.bozo:
                 raise Exception('Can not reach rss')
-            if len(fb.entries) == 0:
+            if len(fp.entries) == 0:
                 raise Exception('Empty Rss or Invalid Rss')
         except Exception as e:
             feed.is_active = False
-            feed.status = e.formatexc()
+            print traceback.format_exc()
+            feed.status = str(e)
             feed.save()
             continue
-        if feed.updated < fp.updated:
-            feed.updated = fp.updated
-            feed.status = store_new_stroy(fb.entries, feed)
+        updated = datetime.fromtimestamp(mktime(fp.updated_parsed))
+        if feed.updated and feed.updated < updated:
+            feed.updated = updated
+            feed.status, c = store_new_story(fp.entries, feed)
             feed.is_active = True
             feed.save()
-    
+            count += c
+    return HttpResponse('%d done' % count)
