@@ -1,20 +1,18 @@
 from django.contrib import admin
-from rssfeeds.model import Category, RssFeed, NewsFeed
+from rssfeeds.models import Category, RssFeed, NewsFeed
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    class Meta:
-        model = Category
+    prepopulated_fields = {"slug": ("title",)}
+    pass
 
 class RssAdmin(admin.ModelAdmin):
-    class Meta:
-        model = RssFeed
+    pass
 
 class NewsAdmin(admin.ModelAdmin):
-    class Meta:
-        model = NewsFeed
+    pass
 
 # Register your models here.
-admin.register(CategoryAdmin, Category)
-admin.register(RssAdmin, RssFeed)
-admin.register(NewsAdmin, NewsFeed)
+admin.site.register(Category, CategoryAdmin,)
+admin.site.register(RssFeed, RssAdmin)
+admin.site.register(NewsFeed, NewsAdmin)
