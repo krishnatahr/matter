@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'matter.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'articles',
+        'NAME': 'articles1',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',
