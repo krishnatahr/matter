@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from rssfeeds.views import start_crawl
+from rssfeeds.views import start_crawl, list_news
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^crawl/', start_crawl, name='crawl')
+    url(r'^crawl/', start_crawl, name='crawl'),
+    url(r'(?P<country>\w\w)/', list_news, name='country'),
+    url(r'(?P<topic>\w\w\w+)/', list_news, name='topic'),
+    url(r'(?P<country>\w\w)/(?P<topic>\w+)/', list_news, name='country-topic'),
 ]

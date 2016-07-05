@@ -3,6 +3,7 @@ from django.shortcuts import render
 from rssfeeds.models import Category, RssFeed, NewsFeed
 from django.http.response import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.serializers import serialize
 from bs4 import BeautifulSoup
 from time import mktime
 from datetime import datetime, timedelta
@@ -81,3 +82,12 @@ def start_crawl(request):
             feed.save()
             count += c
     return HttpResponse('%d done' % count)
+
+def list_news(request, country=None, topic=None):
+    if country:
+        news = NewsFeed.objects.filter(categories__country__exact=country)
+    else:
+        news = NewsFeed.objects.all()
+    if topic:
+        news = news.filter(title__contains=topic)
+    return HttpResponse('%s done' % serialize('json', news))
