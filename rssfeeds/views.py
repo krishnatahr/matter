@@ -30,9 +30,10 @@ def store_new_story(stories, rss):
             try:
                 source = urllib2.urlopen(story.link).read()
                 soup = BeautifulSoup(source)
-                li = soup.select(rss.image_point)
-                if li and li[0].get('src'):
-                    news.image_url = li[0].get('src')
+                tag, attr = rss.image_point.split(':') if ':' in rss.image_point else rss.image_point, 'src'
+                li = soup.select(tag)
+                if li and li[0].get(attr):
+                    news.image_url = li[0].get(attr)
             except:
                 pass
         else:
@@ -61,7 +62,7 @@ def start_crawl(request):
         fp = None
         try:
             fp = feedparser.parse(feed.rss)
-            if fp.status != 200 and fb.bozo:
+            if fp.status != 200 and fp.bozo:
                 raise Exception('Can not reach rss')
             if len(fp.entries) == 0:
                 raise Exception('Empty Rss or Invalid Rss')
@@ -84,10 +85,13 @@ def start_crawl(request):
     return HttpResponse('%d done' % count)
 
 def list_news(request, country=None, topic=None):
-    if country:
+    if country and len(country)==2:
         news = NewsFeed.objects.filter(categories__country__exact=country)
     else:
         news = NewsFeed.objects.all()
+        topic = country
     if topic:
+        print len(news)
         news = news.filter(title__contains=topic)
+    print len(news), country, topic, 20*'*'
     return HttpResponse('%s done' % serialize('json', news))
