@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<tr>
+        <td class="content_body"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="70%" align="left" valign="top">
+				<div class="header_banner">
+          {% if banner %}
+            <div class="slider">
+              {% for i in banner %}
+                <img src="{{static}}/media/{{i.image}}" width="700" height="265"/>
+              {% endfor %}
+            </div>
+          {% else %}
+            <img src="{{static}}/media/images/banner_services.jpg" alt="" width="700" height="265" />
+          {% endif %}
+
+        </div>
+      <div class="inner_content">                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td class="aboutus_bg">
+                      {% if service_content %}
+                        <h1>{{service_content.title}}</h1>
+                        {{service_content.short_text|safe}}
+                      {% else %}
+                        <h1>Services</h1>
+                          <p><strong>We provide the  following Foreign Domestic Helper (FDW) Services:</strong></p>
+                          <p><strong>New  FDW</strong></p>
+                          <p align="justify">We deploy domestic  helpers from MOM approved source countries such as Filipino, Indonesian ,Mizoram and Myanmar. We take care of the end to end process up to bringing the FDW  to your doorstep.  Just select your FDW  and leave the rest to us, it is that  simple!</p>
+                          <p><strong>Transfer  FDW</strong></p>
+                          <p align="justify">Need an experience  maid real quick? We provide locally pre-selected transfer maid that will meet your  needs in days.  </p>
+                          <p><strong>Direct  Hiring FDW</strong></p>
+                          <p>Already have in mind  who you want to hire but need help with the processes to bring in the FDW? We  can assist.</p>
+                          <p><strong>Other  Services</strong></p>
+                          <ul>
+                            <li>Household onsite  orientation on FDW’s first day of work </li>
+                            <li>Work Permit Renewal</li>
+                            <li>Home Leave </li>
+                            <li>Work Permit  Cancellation</li>
+                            <li>Other FDW related  matters</li>
+                          </ul>
+                      {% endif %}
+                    </td>
+                </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+                </table>
+              </div>
+{% endblock %}

@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>:: AmarEmployment Agency || Singapore :: Maid Agency</title>
+<script src="{{static}}/media/js/jquery.js" type="text/javascript"></script>
+<script src="{{static}}/media/js/validjquery.js" type="text/javascript"></script>
+<script src="{{static}}/media/js/validjquerylist.js" type="text/javascript"></script>
+<script type="text/javascript" src="{{static}}/media/js/thickbox.js"></script>
+<link href="{{static}}/media/css/main_style.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+    font: 12pt "Tahoma";
+}
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.page {
+    width: 21cm;
+    min-height: 29.7cm;
+    padding: 1cm;
+    margin: 1cm auto;
+    background: white;
+}
+.subpage {
+    padding: 1cm;
+    height: 256mm;
+}
+
+@page {
+    size: A4;
+    margin: 1cm;
+}
+@media print {
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
+}
+@media print {
+  #breakit, td {
+    page-break-before: always;
+  }
+  tr {
+    page-break-after: avoid;
+  }
+}
+table { page-break-inside:auto }
+tr    { page-break-inside:avoid; page-break-after:auto }
+
+.header_banner {
+	padding: 0 0 5px !important;
+}
+</style>
+</head>
+<body>
+<center>
+<div class="book">
+    <div class="page">
+							<div class="header_banner">
+                {% if logo %}
+                  <img src="{{static}}/media/{{logo.logo}}" alt="" width="" height="" />
+                {% else %}
+                  <img src="{{static}}/media/images/header.jpg" alt="" width="1000" height="140" />
+                {% endif %}
+							</div>
+
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td width="100%" colspan="2" align="left" valign="top"><div class="detail_div">
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td colspan="2" align="left" valign="top" style="padding-bottom:5px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td width="38%" class="detail_title1"></td>
+                                              <td width="62%" align="right" class="detail_button">
+                                              </td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%" align="left" valign="top" style="padding-right:10px;"><table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td class="detail_img">
+                                                <a class="pro_main_image" href="#">
+													<img src="{{static}}/media/{{maids.image}}" width="200" height="250" alt="{{maids.name}}" /></a>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td style="height:15px"></td>
+                                            </tr>
+                                        </table></td>
+                                        <td width="70%" align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td><table width="100%" border="0" cellspacing="0" cellpadding="0" class="detail_table">
+                                                  <tr>
+                                                    <td class="detail_row"><strong>Agency</strong></td>
+                                                    <td colspan="6" class="detail_row">: {{maids.agency.agency_name}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td width="133" class="detail_row detail_row_bg1"><strong>Type</strong></td>
+                                                    <td width="535" colspan="6" class="detail_row detail_row_bg1">: {{maids.types}} </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row"><strong>Maid Name</strong></td>
+                                                    <td colspan="6" class="detail_row">: {{maids.name}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row"><strong>Base Salary</strong></td>
+                                                    <td colspan="6" class="detail_row">: {{maids.base_salary}}</td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>Date of Birth</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">: {{maids.dob|date:"d-m-Y"}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row"><strong>Age Preference</strong></td>
+                                                    <td colspan="6" class="detail_row">: {{maids.agepre}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>Place of Birth</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">: {{maids.birth_place}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row"><strong>Height</strong></td>
+                                                    <td colspan="6" class="detail_row">: {{maids.height}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>Weight</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">: {{maids.weight}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row"><strong>Nationality</strong></td>
+                                                    <td colspan="6" class="detail_row detail_link">:  {{maids.nationality}}</a></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>Address</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">: {{maids.address}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row"><strong>Religion</strong></td>
+                                                    <td colspan="6" class="detail_row">: {{maids.religion}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>Education</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">: {{maids.education}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row"><strong>No of Siblings</strong></td>
+                                                    <td colspan="6" class="detail_row">: {% if maids.no_of_siblings_sis %}{{maids.no_of_siblings_sis}} &{% endif %} {% if maids.no_of_siblings_bro %}{{maids.no_of_siblings_bro}}{% endif %}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>Marital Status</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">: {{maids.get_mstatus_display}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row"><strong>Number of Children</strong></td>
+                                                    <td colspan="6" class="detail_row">: {{maids.no_of_child}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>Age of children</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">: {{maids.age_of_child}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row"><strong>Dietary Restrictions</strong></td>
+                                                    <td colspan="6" class="detail_row">: {{maids.get_dietary_restrictions_display}}</td>
+                                                  </tr>
+                                              </table></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" align="left"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td width="2%" class="htip_topl"></td>
+                                              <td width="96%" class="htip_topbg"></td>
+                                              <td width="2%" class="htip_topr"></td>
+                                            </tr>
+                                            <tr>
+                                              <td class="htip_botl"></td>
+                                              <td class="htip_botbg"></td>
+                                              <td class="htip_botr"></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" align="left">&nbsp;</td>
+                                      </tr>
+                                    </table>
+                                </div></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td width="2%" class="htip_topl"></td>
+                                      <td width="96%" class="htip_topbg"></td>
+                                      <td width="2%" class="htip_topr"></td>
+                                    </tr>
+                                    <tr>
+                                      <td class="htip_botl"></td>
+                                      <td class="htip_botbg"></td>
+                                      <td class="htip_botr"></td>
+                                    </tr>
+                                </table></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" style="height:30px;">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_title">Professional Details</td>
+                              </tr>                             <tr>
+                                <td colspan="2" align="left" style="height:10px;"></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_txt"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="detail_table">
+                                    <tr>
+                                      <td valign="top" class="detail_row"><strong>Language</strong></td>
+                                      <td valign="top" class="detail_row">:</td>
+                                      <td colspan="6" class="detail_row">
+									  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:100px;">
+										{% if maids.language1 %}
+											<tr>
+												<td width="30%" align="left" valign="middle">
+													{{maids.language1}}
+												</td>
+												<td width="70%" align="left" valign="middle">
+													{{maids.expertise1}}
+												</td>
+											</tr>
+										{% endif %}
+										{% if maids.language2 %}
+											<tr>
+												<td width="30%" align="left" valign="middle">
+													{{maids.language2}}
+												</td>
+												<td width="70%" align="left" valign="middle">
+													{{maids.expertise2}}
+												</td>
+											</tr>
+										{% endif %}
+										{% if maids.language3 %}
+											<tr>
+												<td width="30%" align="left" valign="middle">
+													{{maids.language3}}
+												</td>
+												<td width="70%" align="left" valign="middle">
+													{{maids.expertise3}}
+												</td>
+											</tr>
+										{% endif %}
+										{% if maids.language4 %}
+											<tr>
+												<td width="30%" align="left" valign="middle">
+													{{maids.language4}}
+												</td>
+												<td width="70%" align="left" valign="middle">
+													{{maids.expertise4}}
+												</td>
+											</tr>
+										{% endif %}
+										{% if maids.language5 %}
+											<tr>
+												<td width="30%" align="left" valign="middle">
+													{{maids.language5}}
+												</td>
+												<td width="70%" align="left" valign="middle">
+													{{maids.expertise5}}
+												</td>
+											</tr>
+										{% endif %}
+                                      </table>
+                                      </td>
+                                    </tr>
+                                    <tr id="breakit">
+                                      <td width="190" valign="top" class="detail_row detail_row_bg"><strong>Other Information</strong></td>
+                                      <td width="13" valign="top" class="detail_row detail_row_bg">:</td>
+                                      <td width="751" colspan="6" class="detail_row detail_row_bg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <td width="55%">Able to handle pork?</td>
+                                        <td width="45%">
+											{% if maids.pork == '1' %}
+												<img src="{{static}}/media/images/tick.gif" alt="" width="14" height="14" />
+											{% else %}
+												<img src="{{static}}/media/images/cross.gif" alt="" width="14" height="14" />
+											{% endif %}
+										</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Able to eat pork?</td>
+                                        <td>
+											{% if maids.epork == '1' %}
+												<img src="{{static}}/media/images/tick.gif" alt="" width="14" height="14" />
+											{% else %}
+												<img src="{{static}}/media/images/cross.gif" alt="" width="14" height="14" />
+											{% endif %}
+										</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Able to care dog/cat?</td>
+                                        <td>
+											{% if maids.caredog == '1' %}
+												<img src="{{static}}/media/images/tick.gif" alt="" width="14" height="14" />
+											{% else %}
+												<img src="{{static}}/media/images/cross.gif" alt="" width="14" height="14" />
+											{% endif %}
+										</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Able to do simple sewing?</td>
+                                        <td>
+											{% if maids.sewing == '1' %}
+												<img src="{{static}}/media/images/tick.gif" alt="" width="14" height="14" />
+											{% else %}
+												<img src="{{static}}/media/images/cross.gif" alt="" width="14" height="14" />
+											{% endif %}
+										</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Able to do gardening work?</td>
+                                        <td>
+											{% if maids.garden == '1' %}
+												<img src="{{static}}/media/images/tick.gif" alt="" width="14" height="14" />
+											{% else %}
+												<img src="{{static}}/media/images/cross.gif" alt="" width="14" height="14" />
+											{% endif %}
+										</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Willing to wash car?</td>
+                                        <td>
+											{% if maids.car == '1' %}
+												<img src="{{static}}/media/images/tick.gif" alt="" width="14" height="14" />
+											{% else %}
+												<img src="{{static}}/media/images/cross.gif" alt="" width="14" height="14" />
+											{% endif %}
+										</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Number of off-days per month:</td>
+                                        <td>{{maids.no_offday}}</td>
+                                      </tr>
+                                    </table></td>
+                                    </tr>
+                                    <tr>
+                                      <td valign="top" class="detail_row"><strong>Preference &amp; Experience</strong></td>
+                                      <td valign="top" class="detail_row detail_link">:</td>
+                                      <td colspan="6" class="detail_row detail_link"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <td width="55%">General Housekeeping</td>
+                                        <td width="45%">
+											{% if maids.house == '2' %}
+												<img src="{{static}}/media/images/star_icon.gif" alt="" />
+											{% elif maids.house == '3' %}
+												<img src="{{static}}/media/images/2star_icon.gif" alt="" />
+											{% elif maids.house == '4' %}
+												<img src="{{static}}/media/images/3star_icon.gif" alt="" />
+											{% elif maids.house == '5' %}
+												<img src="{{static}}/media/images/4star_icon.gif" alt="" />
+											{% elif maids.house == '6' or maids.house == '7' %}
+												<img src="{{static}}/media/images/5star_icon.gif" alt="" />
+											{% endif %}
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Care for Young Children</td>
+                                        <td>
+											{% if maids.young == '2' %}
+												<img src="{{static}}/media/images/star_icon.gif" alt="" />
+											{% elif maids.young == '3' %}
+												<img src="{{static}}/media/images/2star_icon.gif" alt="" />
+											{% elif maids.young == '4' %}
+												<img src="{{static}}/media/images/3star_icon.gif" alt="" />
+											{% elif maids.young == '5' %}
+												<img src="{{static}}/media/images/4star_icon.gif" alt="" />
+											{% elif maids.young == '6' or maids.young == '7' %}
+												<img src="{{static}}/media/images/5star_icon.gif" alt="" />
+											{% endif %}
+										</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Care for Infant</td>
+                                        <td>
+											{% if maids.infant == '2' %}
+												<img src="{{static}}/media/images/star_icon.gif" alt="" />
+											{% elif maids.infant == '3' %}
+												<img src="{{static}}/media/images/2star_icon.gif" alt="" />
+											{% elif maids.infant == '4' %}
+												<img src="{{static}}/media/images/3star_icon.gif" alt="" />
+											{% elif maids.infant == '5' %}
+												<img src="{{static}}/media/images/4star_icon.gif" alt="" />
+											{% elif maids.infant == '6' or maids.infant == '7' %}
+												<img src="{{static}}/media/images/5star_icon.gif" alt="" />
+											{% endif %}
+										</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Cooking</td>
+                                        <td>
+											{% if maids.cook == '2' %}
+												<img src="{{static}}/media/images/star_icon.gif" alt="" />
+											{% elif maids.cook == '3' %}
+												<img src="{{static}}/media/images/2star_icon.gif" alt="" />
+											{% elif maids.cook == '4' %}
+												<img src="{{static}}/media/images/3star_icon.gif" alt="" />
+											{% elif maids.cook == '5' %}
+												<img src="{{static}}/media/images/4star_icon.gif" alt="" />
+											{% elif maids.cook == '6' or maids.cook == '7' %}
+												<img src="{{static}}/media/images/5star_icon.gif" alt="" />
+											{% endif %}
+										</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Care for Elderly/Disabled</td>
+                                        <td>
+											{% if maids.elder == '2' %}
+												<img src="{{static}}/media/images/star_icon.gif" alt="" />
+											{% elif maids.elder == '3' %}
+												<img src="{{static}}/media/images/2star_icon.gif" alt="" />
+											{% elif maids.elder == '4' %}
+												<img src="{{static}}/media/images/3star_icon.gif" alt="" />
+											{% elif maids.elder == '5' %}
+												<img src="{{static}}/media/images/4star_icon.gif" alt="" />
+											{% elif maids.elder == '6' or maids.elder == '7' %}
+												<img src="{{static}}/media/images/5star_icon.gif" alt="" />
+											{% endif %}
+										</td>
+                                      </tr>
+                                    </table></td>
+                                    </tr>
+                                    <tr>
+                                      <td valign="top" class="detail_row detail_row_bg"><strong>Work Experience</strong></td>
+                                      <td valign="top" class="detail_row detail_row_bg">:</td>
+                                      <td colspan="6" class="detail_row detail_row_bg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <td width="27%">Home Country</td>
+                                        <td width="73%">: {{maids.home}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Singapore</td>
+                                        <td>: {{maids.singapore}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Malaysia</td>
+                                        <td>: {{maids.malaysia}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Hongkong</td>
+                                        <td>: {{maids.hongkong}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Taiwan</td>
+                                        <td>: {{maids.taiwan}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Middle East</td>
+                                        <td>: {{maids.east}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Other Countries</td>
+                                        <td>: {{maids.other}}</td>
+                                      </tr>
+
+                                    </table></td>
+                                    </tr>
+                                </table></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_txt">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_title">Maid Introduction</td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_txt" style="padding-top:10px;">
+								{{maids.about}}
+                                  <h1>&nbsp;</h1></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_line">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_title">Agency Information</td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_txt" style="padding-top:10px;">
+									{% if maids.agency.agency_name %}
+										<p><b style="width: 130px; display: inline-block;">Agency Name</b>: {{maids.agency.agency_name}}</p>
+									{% endif %}
+									{% if maids.agency.address %}
+										<p><b style="width: 130px; display: inline-block;">Address</b>: {{maids.agency.address}}</p>
+									{% endif %}
+									{% if maids.agency.office_no %}
+										<p><b style="width: 130px; display: inline-block;">Phone Number</b>: {{maids.agency.office_no}}</p>
+									{% endif %}
+									{% if maids.agency.fax %}
+										<p><b style="width: 130px; display: inline-block;">Fax</b>: {{maids.agency.fax}}</p>
+									{% endif %}
+									{% if maids.agency.email %}
+										<p><b style="width: 130px; display: inline-block;">E-mail </b>: {{maids.agency.email}}</p>
+									{% endif %}
+									{% if maids.agency.website %}
+										<p><b style="width: 130px; display: inline-block;">Website</b>: {{maids.agency.website}}</p>
+									{% endif %}
+								</td>
+                              </tr>
+                          </table>
+    </div>
+</div>
+</center>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load pagination_tags %}
+{% block content %}
+	<tr>
+        <td class="content_body">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="70%" align="left" valign="top">
+				<div class="header_banner">
+					{% if banner %}
+						<div class="slider">
+							{% for i in banner %}
+								<img src="{{static}}/media/{{i.image}}" width="700" height="265"/>
+							{% endfor %}
+						</div>
+					{% else %}
+						<img src="{{static}}/media/images/banner_maidlist.jpg" alt="" width="700" height="265" />
+					{% endif %}
+				</div>
+				<div class="inner_content">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td class="title1">Maid List</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+									{% if maid %}
+										{% autopaginate maid 12 %}
+										{% for i in maid %}
+											<td>
+												<a href="/maid_profile/{{i.pk}}/" class="maid_box_link">
+													<div class="maid_box1">
+														<img src="{{static}}/media/{{i.image}}" alt="" width="98" height="123" /><br />
+														<h1>{{i.name}}</h1>
+														<h2>{{i.nationality}}</h2>
+														<h3>{{i.agency.agency_name}}</h3>
+														<span class="star">
+															<img src="{{static}}/media/images/star_icon.gif" alt="" />
+															<img src="{{static}}/media/images/star_icon.gif" alt="" />
+															<img src="{{static}}/media/images/star_icon.gif" alt="" />
+															<img src="{{static}}/media/images/star_icon.gif" alt="" />
+															<img src="{{static}}/media/images/star_icon.gif" alt="" />
+														</span>
+													</div>
+												</a>
+											</td>
+											{% if forloop.counter|divisibleby:"4" %}
+										</tr>
+										<tr>
+											{% endif %}
+											{% endfor %}
+									{% else %}
+										<h2>No records match.</h2>
+									{% endif %}
+                              </table></td>
+                          </tr>
+                        </table>{% paginate %}</td>
+                    </tr>
+                  </table>
+                </div>
+{% endblock %}

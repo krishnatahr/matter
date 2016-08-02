@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+<script>
+  $(function() {
+    $("#contact_form").validate({
+
+        // Specify the validation rules
+        rules: {
+            phone: "required",
+            email: {
+                required: true,
+                email: true
+            },
+        },
+
+        // Specify the validation error messages
+        messages: {
+            email: "Please enter a valid email address",
+            phone: "Please enter a valid phone number"
+        },
+
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+
+  </script>
+
+{% block content %}
+<tr>
+        <td class="content_body"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="70%" align="left" valign="top">
+                <div class="header_banner">
+                  {% if banner %}
+  									<div class="slider">
+  										{% for i in banner %}
+  											<img src="{{static}}/media/{{i.image}}" width="700" height="265"/>
+  										{% endfor %}
+  									</div>
+  								{% else %}
+                    <img src="{{static}}/media/images/banner_contactus.jpg" alt="" width="700" height="265" />
+  								{% endif %}
+                </div>
+
+                <div class="inner_content">                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td class="aboutus_bg"><h1>Contact Us</h1></td>
+                    {% if success_msg %}<h4 class='success_message'>{{success_msg}}</h4>{% endif %}
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                      <td><table class="detail_table" border="0" cellpadding="0" cellspacing="0" width="100%">
+                          <tbody>
+                            <tr>
+                              <td width="133" class="row_bdr1"><strong>Address</strong></td>
+                              <td width="535" colspan="6" class="row_bdr1">: 810 Geylang Road,#03-13 City Plaza Singapore - 409286 </td>
+                            </tr>
+                            <tr>
+                              <td class="row_bdr1"><strong>Office No</strong></td>
+                              <td colspan="6" class="row_bdr1">: 6884 1786 </td>
+                            </tr>
+                            <tr>
+                              <td class="row_bdr1"><strong>Fax</strong></td>
+                              <td colspan="6" class="row_bdr1">: 6745 1006 </td>
+                            </tr>
+                            <tr>
+                              <td class="row_bdr1"><strong>Contact Person</strong></td>
+                              <td colspan="6" class="row_bdr1">: Mr.Amar / Pearl</td>
+                            </tr>
+                            <tr>
+                              <td class="row_bdr1"><strong>Mobile</strong></td>
+                              <td colspan="6" class="row_bdr1">: 9067 4404 / 9731 7204 </td>
+                            </tr>
+                            <tr>
+                              <td class="row_bdr1"><strong>Email</strong></td>
+                              <td colspan="6" class="row_bdr1">:<a href="mailto:amar.employment@gmail.com">amar.employment@gmail.com / <a href="mailto:amaremployment@singnet.com.sg">amaremployment@singnet.com.sg</a> </a></td>
+                            </tr>
+                            <tr>
+                              <td class="row_bdr1"><strong>Office Hour</strong></td>
+                              <td colspan="6" class="row_bdr1">: 10.00 AM - 6.30 PM </td>
+                            </tr>
+                          </tbody>
+                        </table></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="aboutus_bg"><h1>Enquiry Form</h1></td>
+                    </tr>
+                    <tr>
+                      <td><div class="regis_topbox">
+                          <div>
+                            <form name="contact_form" id="contact_form" method="post">
+                     		       {% csrf_token %}
+                            <table class="regis_form_txt" border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tbody>
+                                <tr>
+                                  <td colspan="2" align="center" valign="top"></td>
+                                </tr>
+                                    <tr>
+                                      <!--<td colspan="3" align="center" valign="top" style="color:#F00;"><?php  echo "Your Message has been successfully sent to the Agency.<br/>The Agency representative will get in touch with you."; // echo $msg; ?></td>-->
+                                      </tr>
+                                <tr>
+                                  <td valign="top" width="16%">Name<span class="mantory">* </span></td>
+                                  <td class="label"><p><input name="name" id="cname" value="" class="regis_form_txtarea" type="text" value="" /></p>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td valign="top">Email<span class="mantory">* </span></td>
+                                  <td><p><input name="email" id="email" class="regis_form_txtarea" type="text" value="" /></p>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td valign="top">Contact No<span class="mantory">* </span></td>
+                                  <td><p><input name="phone" id="cphone" value="" class="regis_form_txtarea" type="text" value="" /></p>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td valign="top">Message<span class="mantory">* </span></td>
+                                  <td><p><textarea name="message" id="comment" class="regis_form_txtarea"></textarea>
+                                      </p></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div style="padding:10px 0 0 0;">
+                          <input name="consubmit" id="consubmit" value="Submit" class="regis_form_button" type="submit">
+						</td>
+                    </tr>
+
+                </table>
+                </form>
+              </div>
+{% endblock %}

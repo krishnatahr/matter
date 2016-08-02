@@ -1,0 +1,7 @@
+{% if banner %}
+  {% for i in banner %}
+    <a href="{{ i.link_url }}" target="_blank">
+      <img src="{{ i.image.url }}" alt="{{ i.link_alt_text }}">
+    </a>
+  {% endfor %}
+{% endif %}

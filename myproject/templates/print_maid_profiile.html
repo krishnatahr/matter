@@ -1,0 +1,711 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Globaltech HR(S) Pte Ltd - reliablemaid.com.sg</title>
+<link href="{{static}}/media/css/sss.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+    font: 12pt "Tahoma";
+}
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.page {
+    width: 21cm;
+    min-height: 29.7cm;
+    padding: 1cm;
+    margin: 0px auto;
+    background: white;
+}
+.subpage {
+    padding: 1cm;
+    height: 256mm;
+}
+
+@page {
+    size: A4;
+    margin: 1cm;
+}
+@media print {
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
+}
+@media print {
+  #breakit, td {
+    page-break-before: always;
+  }
+  tr {
+    page-break-after: avoid;
+  }
+}
+table { page-break-inside:auto }
+tr    { page-break-inside:avoid; page-break-after:auto }
+
+.header_banner {
+	padding: 0 0 5px !important;
+}
+</style>
+</head>
+<body>
+<center>
+<div class="book">
+    <div class="page">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <div class="header_profile">
+                <h3>BIO-DATA OF FOREIGN DOMESTIC WORKER (FDW)</h3>
+                <span>*Please ensure that you run through the information within the biodata as it is an important document to help you select a suitable FDW</span>
+              </div>
+
+              <div class="section">
+                <h3>(A) <u>PROFILE OF FDW</u></h3>
+                <h5>A1 <span>Personal Information</span></h5>
+
+                <div class="personal_info">
+                  <div class="left">
+                    <ol>
+                      <li>1. Name: <u>{{maids.name}}</u></li>
+                      <li>
+                        2. Date of birth:
+                        <div class="dob">
+                          {% for i in maids.dob %}
+                            {% if i != '-' %}
+                              <span>{{i}}</span>
+                            {% endif %}
+                          {% endfor %}
+                          Age:
+                          {% for i in maids.age|safe %}
+                              <span>{{i}}</span>
+                          {% endfor %}
+                        </div><!--dob-->
+                      </li>
+                      <li>3. Place of birth: <u>{{maids.birth_place}}</u></li>
+                      <li>4. Height & weight:
+                        <div class="dob">
+                          {% for i in maids.height %}
+                            <span>{{i}}</span>
+                          {% endfor %}
+                          cm
+                          {% for i in maids.weight %}
+                            <span>{{i}}</span>
+                          {% endfor %}
+                          kg
+                        </div>
+                      </li>
+                      <li>5. Nationality: <u>{{maids.nationality}}</u></li>
+                      <li>6. Residential address in home country:
+                        <u>{{maids.resident|safe}}</u>
+                      </li>
+                      <li>
+                        7. Name of port / airport to be repatriated to:
+                        <u>{{maids.repatriat}}</u>
+                      </li>
+                      <li>
+                        8. Contact number in home country:
+                        <u>{{maids.phone}}</u>
+                      </li>
+                      <li>
+                        9. Religion:
+                        <u>{{maids.religion}}</u>
+                      </li>
+                      <li>
+                        10. Education level:
+                        <u>{{maids.education}}</u>
+                      </li>
+                      <li>
+                        11. Number of siblings: <u>{{maids.no_of_sibling}}</u>
+                      </li>
+                      <li>
+                        12. Marital status: <u>{{maids.mstatus}}</u>
+                      </li>
+                      <li>
+                        13. Number of children: <u>{{maids.no_of_child}}</u>
+                      <li>
+                      <li>
+                        - Age(s) of children (if any): <u>{{maids.age_of_child}}</u>
+                      <li>
+                    </ol>
+                  </div><!--left-->
+                  <div class="right">
+                    <div class="photo">
+                      <img src="/media/{{maids.image}}"/>
+                    </div>
+                  </div><!--right-->
+                  <div class="clear_both"></div>
+                </div><!--personal_info-->
+              </div><!--section-->
+
+              <div class="section">
+                <h5>A2 <span>Medical History/Dietary Restrictions</span></h5>
+                <ol>
+                  <li>
+                    14. Allergies (if any): <u>{{maids.allergies}}</u>
+                  </li>
+                  <li>
+                    15. Past and existing illnesses (including chronic ailments and illnesses requiring medication):
+                    <div class="grid_points">
+                      <ul>
+                        <li>
+                        i. Mental illness
+                            <input type="checkbox" readonly value="" class="no"/>
+                            <input type="checkbox" {% for i in maids.illness %}{% if i == '1' %}checked{% endif %}{% endfor %} class="yes"/>
+                        </li>
+                        <li>ii. Epilepsy
+                          <input type="checkbox" readonly value="" class="no"/>
+                          <input type="checkbox" {% for i in maids.illness %}{% if i == '2' %}checked{% endif %}{% endfor %} class="yes"/>
+                        </li>
+                        <li>iii. Asthma
+                          <input type="checkbox" readonly value="" class="no"/>
+                          <input type="checkbox" {% for i in maids.illness %}{% if i == '3' %}checked{% endif %}{% endfor %} class="yes"/>
+                        </li>
+                        <li>iv. Diabetes
+                          <input type="checkbox" readonly value="" class="no"/>
+                          <input type="checkbox" {% for i in maids.illness %}{% if i == '4' %}checked{% endif %}{% endfor %} class="yes"/>
+                        </li>
+                        <li>v. Hypertension
+                          <input type="checkbox" readonly value="" class="no"/>
+                          <input type="checkbox" {% for i in maids.illness %}{% if i == '5' %}checked{% endif %}{% endfor %} class="yes"/>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li>vi. Tuberculosis
+                          <input type="checkbox" readonly value="" class="no"/>
+                          <input type="checkbox" {% for i in maids.illness %}{% if i == '6' %}checked{% endif %}{% endfor %} class="yes"/>
+                        </li>
+                        <li>vii. Heart disease
+                          <input type="checkbox" readonly value="" class="no"/>
+                          <input type="checkbox" {% for i in maids.illness %}{% if i == '7' %}checked{% endif %}{% endfor %} class="yes"/>
+                        </li>
+                        <li> viii. Malaria
+                          <input type="checkbox" readonly value="" class="no"/>
+                          <input type="checkbox" {% for i in maids.illness %}{% if i == '8' %}checked{% endif %}{% endfor %} class="yes"/>
+                        </li>
+                        <li>ix. Operations
+                          <input type="checkbox" readonly value="" class="no"/>
+                          <input type="checkbox" {% for i in maids.illness %}{% if i == '9' %}checked{% endif %}{% endfor %} class="yes"/>
+                        </li>
+                        <li> x. Others: <u></u>
+                        </li>
+                      </ul>
+                    </div><!--grid_points-->
+                    <div class="clear_both"></div>
+                  </li>
+                  <li>
+                    16. Physical disabilities:<u>{{maids.disabilities}}</u>
+                  </li>
+                  <li>
+                    17. Dietary restrictions: <u>{{maids.dietary_restrictions}}</u>
+                  </li>
+                  <li class="food">
+                    <div style="float: left;">18. Food handling preferences:</div>
+                    <ul>
+                      <li>
+                        <input type="checkbox" {% for i in maids.food_handle %}{% if i == '1' %}checked{% endif %}{% endfor %} value=""/> No pork
+                      </li>
+                      <li>
+                        <input type="checkbox" {% for i in maids.food_handle %}{% if i == '2' %}checked{% endif %}{% endfor %} value=""/> No beef
+                      </li>
+                      <li><input type="checkbox" value=""/> Others: <u>{{maids.food_other}}</u></li>
+                    </ul>
+                  </li>
+                </ol>
+                <div class="clear_both"></div>
+                </div><!--personal_info-->
+              </div><!--section-->
+
+              <div class="section">
+                <h5>A3 <span>Others</span></h5>
+
+                <div class="personal_info">
+                    <ol>
+                      <li>19. Preference for rest day: <u>{{maids.off_days}}</u>rest day(s) per month. </li>
+                      <li>20. Any other remarks: <u>{{maids.remarks}}</u></li>
+                    </ol>
+                </div>
+              </div>
+
+              <div class="section">
+                <h3>(B) SKILLS OF FDW</h3>
+                <h5>B1  <span>Method of Evaluation of Skills</span></h5>
+
+                <div class="">
+                    <ol>
+                      <li>Please indicate the method(s) used to evaluate the FDW’s skills (can tick more than one):</li>
+                      <li>
+                        <input type="checkbox" {% if maids.no_eval == 1 %}checked{% endif %} value=""/> Based on FDW’s declaration, no evaluation/observation by Singapore EA or overseas training centre/EA
+                      </li>
+                      <li>
+                        <input type="checkbox" {% if maids.sg_eval == 1 %}checked{% endif %} value=""/> Interviewed by Singapore EA
+                        <ul class="interview">
+                          <li>
+                            <input type="checkbox" {% for i in maids.sg_interview_type %}{% if i == '1' %}checked{% endif %}{% endfor %}
+                            value=""/> Interviewed via telephone/teleconference
+                          </li>
+                          <li>
+                            <input type="checkbox" {% for i in maids.sg_interview_type %}{% if i == '2' %}checked{% endif %}{% endfor %} value=""/> Interviewed via videoconference
+                          </li>
+                          <li>
+                            <input type="checkbox" {% for i in maids.sg_interview_type %}{% if i == '3' %}checked{% endif %}{% endfor %} value=""/> Interviewed in person
+                          </li>
+                          <li>
+                            <input type="checkbox" {% for i in maids.sg_interview_type %}{% if i == '4' %}checked{% endif %}{% endfor %} value=""/> Interviewed in person and also made observation of FDW in the areas of work listed in table
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <table width="97%" style="margin-left: 10px;" border="1" class="table">
+                          <thead>
+                            <tr>
+                              <th style="width: 40px;"><b>S/No</b></th>
+                              <th style="width: 150px;"><b>Areas of Work</b></th>
+                              <th style="width: 80px;"><b>Willingness</b><br>Yes/No</th>
+                              <th style="width: 80px;"><b>Experience</b><br>Yes/No If yes, state the no. of years</th>
+                              <th style="width: 200px;"><b>Assessment/Observation</b><br>
+                                Please state qualitative observations of FDW and/or rate the
+                                FDW (indicate N.A. of no evaluation was done)<br>
+                                Poor.............Excellent............N.A<br>
+                                1 2 3 4 5 N.A</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>Care of infants/children<br>
+                                Please specify age range:<br>
+                                <u>{{maids.sg_child_age}}</u>
+                              </td>
+                              {% if maids.sg_children|length > 2 %}
+                                <script>
+                                 var childs = {{maids.sg_children|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                              {% else %}
+                                <td></td><td></td><td></td>
+                              {% endif %}
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>Care of elderly
+                              </td>
+                              {% if maids.sg_elderly|length > 2 %}
+                                <script>
+                                 var childs = {{maids.sg_elderly|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                                {% else %}
+                                  <td></td><td></td><td></td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>Care of disabled
+                              </td>
+                              {% if maids.sg_disabled|length > 2 %}
+                                <script>
+                                 var childs = {{maids.sg_disabled|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                                {% else %}
+                                  <td></td><td></td><td></td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                              <td>4</td>
+                              <td>General housework<br>
+                              </td>
+                              {% if maids.sg_housework|length > 2 %}
+                                <script>
+                                 var childs = {{maids.sg_housework|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                                {% else %}
+                                  <td></td><td></td><td></td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                              <td>5</td>
+                              <td>Cooking<br>
+                                Please specify cuisines:<br>
+                                <u>{{maids.sg_cook_cusine}}</u>
+                              </td>
+                              {% if maids.sg_cooking|length > 2 %}
+                                <script>
+                                 var childs = {{maids.sg_cooking|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                                {% else %}
+                                  <td></td><td></td><td></td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                              <td>6</td>
+                              <td>Language abilities (spoken)<br>
+                                Please specify:<br>
+                                <u>{{maids.sg_languages}}</u>
+                              </td>
+                              {% if maids.sg_language|length > 2 %}
+                                <script>
+                                 var childs = {{maids.sg_language|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                                {% else %}
+                                  <td></td><td></td><td></td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                              <td>7</td>
+                              <td>Other skills, if any<br>
+                                Please specify:<br>
+                                <u>{{maids.sg_others}}</u>
+                              </td>
+                              {% if maids.sg_other|length > 2 %}
+                                <script>
+                                 var childs = {{maids.sg_other|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                                {% else %}
+                                  <td></td><td></td><td></td>
+                                {% endif %}
+                            </tr>
+                          </tbody>
+                        </table>
+                      </li>
+                    </ol>
+                </div>
+              </div><!--section-->
+
+              <div class="section">
+                <div class="">
+                    <ol>
+                      <li>
+                        <input type="checkbox" {% if maids.ov_eval == 1%}checked{% endif %} value=""/> Interviewed by overseas training centre / EA (Please state name of foreign training centre / EA: <u>{{maids.ov_ea_name}}</u> )
+                        <br>State if the third party is certified (e.g. ISO9001) or audited periodically by the EA: <u>{{maids.ov_ea_certify}}</u>
+                        <ul class="interview">
+                          <li>
+                            <input type="checkbox" {% for i in maids.ov_interview_type %}{% if i == '1' %}checked{% endif %}{% endfor %} value=""/> Interviewed via telephone/teleconference
+                          </li>
+                          <li>
+                            <input type="checkbox" {% for i in maids.ov_interview_type %}{% if i == '2' %}checked{% endif %}{% endfor %} value=""/> Interviewed via videoconference
+                          </li>
+                          <li>
+                            <input type="checkbox" {% for i in maids.ov_interview_type %}{% if i == '3' %}checked{% endif %}{% endfor %} value=""/> Interviewed in person
+                          </li>
+                          <li>
+                            <input type="checkbox" {% for i in maids.ov_interview_type %}{% if i == '4' %}checked{% endif %}{% endfor %} value=""/> Interviewed in person and also made observation of FDW in the areas of work listed in table
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <table width="97%" style="margin-left: 10px;" border="1" class="table">
+                          <thead>
+                            <tr>
+                              <th style="width: 40px;"><b>S/No</b></th>
+                              <th style="width: 150px;"><b>Areas of Work</b></th>
+                              <th style="width: 80px;"><b>Willingness</b><br>Yes/No</th>
+                              <th style="width: 80px;"><b>Experience</b><br>Yes/No If yes, state the no. of years</th>
+                              <th style="width: 200px;"><b>Assessment/Observation</b><br>
+                                Please state qualitative observations of FDW and/or rate the
+                                FDW (indicate N.A. of no evaluation was done)<br>
+                                Poor.............Excellent............N.A<br>
+                                1 2 3 4 5 N.A</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>Care of infants/children<br>
+                                Please specify age range:<br>
+                                <u>{{maids.ov_child_age}}</u>
+                              </td>
+                              {% if maids.ov_children|length > 2 %}
+                                <script>
+                                 var childs = {{maids.ov_children|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                              {% else %}
+                                <td></td><td></td><td></td>
+                              {% endif %}
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>Care of elderly
+                              </td>
+                              {% if maids.ov_elderly|length > 2 %}
+                                <script>
+                                 var childs = {{maids.ov_elderly|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                                {% else %}
+                                  <td></td><td></td><td></td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>Care of disabled
+                              </td>
+                              {% if maids.ov_disabled|length > 2 %}
+                                <script>
+                                 var childs = {{maids.ov_disabled|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                                {% else %}
+                                  <td></td><td></td><td></td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                              <td>4</td>
+                              <td>General housework<br>
+                              </td>
+                              {% if maids.ov_housework|length > 2 %}
+                                <script>
+                                 var childs = {{maids.ov_housework|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                                {% else %}
+                                  <td></td><td></td><td></td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                              <td>5</td>
+                              <td>Cooking<br>
+                                Please specify cuisines:<br>
+                                <u>{{maids.ov_cook_cusine}}</u>
+                              </td>
+                              {% if maids.ov_cooking|length > 2 %}
+                                <script>
+                                 var childs = {{maids.ov_cooking|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                                {% else %}
+                                  <td></td><td></td><td></td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                              <td>6</td>
+                              <td>Language abilities (spoken)<br>
+                                Please specify:<br>
+                                <u>{{maids.ov_languages}}</u>
+                              </td>
+                              {% if maids.ov_language|length > 2 %}
+                                <script>
+                                 var childs = {{maids.ov_language|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                                {% else %}
+                                  <td></td><td></td><td></td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                              <td>7</td>
+                              <td>Other skills, if any<br>
+                                Please specify:<br>
+                                <u>{{maids.ov_others}}</u>
+                              </td>
+                              {% if maids.ov_other|length > 2 %}
+                                <script>
+                                 var childs = {{maids.ov_other|safe}}
+                                 document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"+childs[2]+"</td>");
+                                </script>
+                                {% else %}
+                                  <td></td><td></td><td></td>
+                                {% endif %}
+                            </tr>
+                          </tbody>
+                        </table>
+                      </li>
+                    </ol>
+                </div>
+              </div><!--section-->
+
+              <div class="section">
+                <h3>(C) EMPLOYMENT HISTORY OF THE FDW</h3>
+                <h5>C1  <span>Employment History Overseas</span></h5>
+
+                <div class="">
+                  <ol>
+                    <li>
+                      <table width="97%" style="margin-left: 10px;" border="1" class="table">
+                        <thead>
+                          <tr>
+                            <th rowspan="2">Date</th>
+                          </tr>
+                          <tr>
+                            <th style="width: 70px;"><b>From</b></th>
+                            <th style="width: 70px;"><b>To</b></th>
+                            <th style="width: 100px;"><b>Country (including FDW's home country)</b></th>
+                            <th style="width: 80px;"><b>Employer</b></th>
+                            <th style="width: 200px;"><b>Work Duties</b></th>
+                            <th style="width: 90px;"><b>Remarks</b></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <script>
+                             var childs = {{maids.ov_history1|safe}}
+                             document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"
+                             +childs[2]+"</td>"+"</td><td>"+childs[3]+"</td>"+"</td><td>"+childs[4]+"</td>"+"</td><td>"+childs[5]+"</td>"+"</td><td>"+childs[6]+"</td>");
+                            </script>
+                          </tr>
+                          <tr>
+                            <script>
+                             var childs = {{maids.ov_history2|safe}}
+                             document.write("<td>"+childs[0]+"</td><td>"+childs[1]+"</td><td>"
+                             +childs[2]+"</td>"+"</td><td>"+childs[3]+"</td>"+"</td><td>"+childs[4]+"</td>"+"</td><td>"+childs[5]+"</td>"+"</td><td>"+childs[6]+"</td>");
+                            </script>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ol>
+                </div>
+              </div><!--section-->
+
+              <div class="section">
+                <h5>C2  <span>Employment History in Singapore</span></h5>
+
+                <div class="">
+                  <ol>
+                    <li>
+                      Previous working experience in Singapore <input type="checkbox" {% if maids.singapore_history == 1 %}checked{% endif %} value="" style="margin: 0px 0px 0px 100px;"/>Yes
+                      <input type="checkbox" {% if maids.singapore_history == 0 %}checked{% endif %} value="" style="margin: 0px 0px 0px 100px;"/>No
+                      <p style="line-height: 18px;">(The EA is required to obtain the FDW's employment history from MOM and furnish the employer with the employment history of
+            the FDW. The employer may also verify the FDW’s employment history in Singapore through WPOL using SingPass)</p>
+                    </li>
+                  </ol>
+                </div>
+                <h5>C3  <span>Feedback from previous employers in Singapore</span></h5>
+                <p style="line-height: 18px; font-size: 14px; ">Feedback was/was not obtained by the EA from the previous employers. If feedback was obtained (attach testimonial if possible),
+            please indicate the feedback in the table below:</p>
+
+                <div class="">
+                  <ol>
+                    <li>
+                      <table border="1" class="table" width="97%">
+                        <tr>
+                          <td style="width: 150px;"></td>
+                          <td>Feedback</td>
+                        </tr>
+                        <tr>
+                          <td>Employer 1</td>
+                          <td>{{maids.feedback1}}</td>
+                        </tr>
+                        <tr>
+                          <td>Employer 2</td>
+                          <td>{{maids.feedback2}}</td>
+                        </tr>
+                      </table>
+                    </li>
+                  </ol>
+                </div>
+                <h5>D  <span>AVAILABILITY OF FDW TO BE INTERVIEWED BY PROSPECTIVE EMPLOYER</span></h5>
+                <div class="">
+                  <ol>
+                    <li>
+                      <input type="checkbox" {% for i in maids.fdw_availability|safe %}{% if i == '1' %}checked{% endif %}{% endfor %} value=""/> FDW is not available for interview
+                    </li>
+                    <li>
+                      <input type="checkbox" {% for i in maids.fdw_availability|safe %}{% if i == '2' %}checked{% endif %}{% endfor %}  value=""/> FDW can be interviewed by phone
+                    </li>
+                    <li>
+                      <input type="checkbox" {% for i in maids.fdw_availability|safe %}{% if i == '3' %}checked{% endif %}{% endfor %}  value=""/> FDW can be interviewed by video-conference
+                    </li>
+                    <li>
+                      <input type="checkbox" {% for i in maids.fdw_availability|safe %}{% if i == '4' %}checked{% endif %}{% endfor %}  value=""/> FDW can be interviewed in person
+                    </li>
+                  </ol>
+                </div>
+                <h5>E  <span>OTHER REMARKS</span></h5>
+                <u style="display: block; width: 100%;">{{maids.other_remarks}}</u>
+
+                <div class="">
+                  <ol>
+                    <li>
+                      <div style="float: left; border-top: 1px solid #000; min-width: 300px; margin: 30px 0px 15px 0px;">
+                        <p>FDW Name and Signature</p>
+                        <p>Date:</p>
+                      </div>
+                      <div style="float: right; border-top: 1px solid #000; min-width: 300px; margin: 30px 0px 0px 0px;">
+                        <p>EA Personnel Name and Registration Number</p>
+                        <p>Date:</p>
+                      </div>
+                      <div class="clear_both"></div>
+                    </li>
+                    <li>
+                    I have gone through the 4 page biodata of this FDW and confirm that I would like to employ her
+                    </li>
+                    <li>
+                      <div style="float: left; border-top: 1px solid #000; min-width: 300px; margin: 30px 0px 15px 0px;">
+                        <p>Employer Name and NRIC No.</p>
+                        <p>Date:</p>
+                      </div>
+                      <div class="clear_both"></div>
+                    </li>
+                  </ol>
+                </div>
+                <center>***************</center>
+                <h3><u>IMPORTANT NOTES FOR EMPLOYERS WHEN USING THE SERVICES OF AN EA</u></h3>
+                <ul class="endpoints">
+                  <li>Do consider asking for an FDW who is able to communicate in a language you require, and interview her (in
+            person/phone/videoconference) to ensure that she can communicate adequately.
+                  </li>
+                  <li>Do consider requesting for an FDW who has a proven ability to perform the chores you require, for example, performing
+            household chores (especially if she is required to hang laundry from a high-rise unit), cooking and caring for young children
+            or the elderly.</li>
+                  <li>Do work together with the EA to ensure that a suitable FDW is matched to you according to your needs and requirements.
+                  </li>
+                  <li>You may wish to pay special attention to your prospective FDW’s employment history and feedback from the FDW’s
+            previous employer(s) before employing her.</li>
+                </ul>
+              </div><!--section-->
+        </td>
+    </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="left" class="detail_title">Agency Information</td>
+      </tr>
+      <tr>
+                <td colspan="2" align="left" class="detail_txt" style="padding-top:10px;">
+        {% if maids.agency.agency_name %}
+        <p><b style="width: 130px; display: inline-block;">Agency Name</b>: {{maids.agency.agency_name}}</p>
+        {% endif %}
+        {% if maids.agency.address %}
+        <p><b style="width: 130px; display: inline-block;">Address</b>: {{maids.agency.address}}</p>
+        {% endif %}
+        {% if maids.agency.office_no %}
+        <p><b style="width: 130px; display: inline-block;">Phone Number</b>: {{maids.agency.office_no}}</p>
+        {% endif %}
+        {% if maids.agency.fax %}
+        <p><b style="width: 130px; display: inline-block;">Fax</b>: {{maids.agency.fax}}</p>
+        {% endif %}
+        {% if maids.agency.email %}
+        <p><b style="width: 130px; display: inline-block;">E-mail </b>: {{maids.agency.email}}</p>
+        {% endif %}
+        {% if maids.agency.website %}
+        <p><b style="width: 130px; display: inline-block;">Website</b>: {{maids.agency.website}}</p>
+        {% endif %}
+        </td>
+      </tr>
+    </table>
+
+    </div>
+</div>
+</center>
+</body>
+</html>

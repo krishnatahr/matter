@@ -1,0 +1,325 @@
+                        <form name="maidreg1" id="maidreg1" method="post" enctype="multipart/form-data">
+                             <div class="regis_topbox">
+                                <table width="100%" border="0" cellspacing="4" cellpadding="0" class="regis_form_txt">
+                                    <tr>
+                                      <td colspan="4" align="center" valign="top" style="color:#F00;"></td>
+                                      </tr>
+                                  <tr>
+                                    <td width="26%" align="left" valign="top" nowrap>Maid Name<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp><p><input name="mname" type="text" class="regis_form_txtarea" id="mname" maxlength="30" />
+                                      <br /></p></td>
+                                    </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Maid Image</td>
+                                    <td colspan="3" align="left" valign="middle">
+                                      <div id="upload">Select Your Photo</div><br />
+                                      <span>Note: PNG, JPEG, or GIF only; max size 100 KB</span><br />
+                                      <div id="upload_area"><img src="images/maid_photo.jpg" alt="" /></div><br /></td>
+                                    </tr>
+                                     <tr>
+                                    <td align="left" valign="top">Maid Image</td>
+                                    <td colspan="3" align="left" valign="middle">
+                                      <div id="upload1">Select Your Photo</div><br />
+                                      <span>Note: PNG, JPEG, or GIF only; max size 100 KB</span><br />
+                                      <div id="upload_area1"><img src="images/maid_photo.jpg" alt="" /></div><br /></td>
+                                    </tr>
+                                     <tr>
+                                    <td align="left" valign="top">Maid Image</td>
+                                    <td colspan="3" align="left" valign="middle">
+                                      <div id="upload2">Select Your Photo</div><br />
+                                      <span>Note: PNG, JPEG, or GIF only; max size 100 KB</span><br />
+                                      <div id="upload_area2"><img src="images/maid_photo.jpg" alt="" /></div><br />
+                                      <span>Domestic Worker Should be Female.</span>
+                                      </td>
+                                    </tr>
+                                    <!--  <tr>
+                                    <td align="left" valign="top">Ref.Code<span class="mantory">* </span></td>
+                                    <td colspan="2" align="left" valign="middle"><input name="refcode" type="text" class="regis_form_txtarea" id="refcode" maxlength="10" /></td>
+                                    <td align="left" valign="middle"><label style="display: none;" class="error" id="error2">Please enter reference code</label></td>
+                                    </tr> -->
+                                  <tr>
+                                    <td align="left" valign="top">Video Upload </td>
+                                    <td colspan="3" align="left" valign="middle">
+                                        <input name="videourl" type="radio" id="videourl" class="upload" value="no" onclick="uploadvid(0);" checked="checked" />
+                                            No Video <input name="videourl" type="radio" id="videourl" class="upload" value="video" onclick="uploadvid(1);" />
+                                            Video Upload 
+                                              <input name="videourl" id="videourl" type="radio" value="you" class="upload" onclick="uploadvid(2);" />
+Youtube Video </td>
+                                      </tr>
+                                      <tr>
+                                         <td>&nbsp;</td>
+                                         <td colspan="3"><div id="video" style="display:none;">
+                                          <input type="file" name="vfile" />
+                                        </div><div id="you" style="display:none;"><textarea name="vyoutube" cols="35" rows="4"></textarea></div></td>
+                                      </tr>
+                                      <tr>
+                                    <td align="left" valign="top">Type<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp><select name="type" size="1" id="type" class="regis_form_txtarea">
+                                            <option value="">No Preference</option>
+                                            <?php $sqltom=DB("SELECT * FROM maid_category WHERE type='tom'");
+											while($fetchtom=mysql_fetch_array($sqltom))
+											{?>
+                                            <option value="<?php echo $fetchtom['name'];?>"><?php echo $fetchtom['name'];?></option>
+                                            <?php } ?>
+                                        </select></td>
+                                    </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Nationality<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp><select name="nationality" size="1" class="regis_form_txtarea" id="nationality" >
+                                            <option value="">No Preference</option>
+                                            <?php $sqlnay=DB("SELECT * FROM maid_category WHERE type='nay'");
+											while($fetchnay=mysql_fetch_array($sqlnay))
+											{?>
+                                            <option value="<?php echo $fetchnay['name'];?>"><?php echo $fetchnay['name'];?></option>
+                                            <?php } ?>
+                                            </select><br/>
+                                            <span>From an approved source country/territory. These countries/territories include Bangladesh, Hong Kong, India, Indonesia, Macau, Malaysia, The Republic of the Union of Myanmar, Philippines, South Korea, Sri Lanka, Taiwan, and Thailand.</span>
+                                                                                  </td>
+                                    </tr>
+                                    <tr>
+                                    <td align="left" valign="top">Date of Birth<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" style="margin: 0 0 0 0;padding: 0;" nowarp>
+                                   <img class="mypicker" src="images2/cal.gif" onclick="javascript:NewCssCal('datepick','yyyyMMdd')" style="cursor:pointer"/> <input id="datepick" class="mypicker" name="datepick" type="text" readonly />
+                                   <br/><span>For first-time applicants: Aged 23 years or above, and below 50 years old at the time of the Work Permit application.</span>
+                                   </td>
+                                    </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Height</td>
+                                    <td colspan="3" align="left" valign="middle"><select name="height" size="1" class="regis_form_txtarea" id="height" >
+                                            <option value="No Preference">No Preference</option>
+                                            <?php $sqlhe=DB("SELECT * FROM maid_category WHERE type='he'");
+											while($fetchhe=mysql_fetch_array($sqlhe))
+											{?>
+                                            <option value="<?php echo $fetchhe['name'];?>"><?php echo $fetchhe['name'];?></option>
+                                            <?php } ?>
+                                            </select></td>
+                                    </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Weight</td>
+                                    <td colspan="2" align="left" valign="middle"><input name="weight" type="text" class="regis_form_txtarea" id="weight" maxlength="10" /></td>
+                                    <td align="left" valign="middle">&nbsp;</td>
+                                  </tr>
+                                   <tr>
+                                    <td align="left" valign="top">Religion</td>
+                                    <td colspan="2" align="left" valign="middle">
+                                    <select name="religion" size="1" class="regis_form_txtarea" id="religion" >
+                                    <option value="No Preference">No Preference</option>
+                                    <?php $sqlre=DB("SELECT * FROM maid_category WHERE type='re'");
+                                    while($fetchre=mysql_fetch_array($sqlre))
+                                    {?>
+                                    <option value="<?php echo $fetchre['name'];?>"><?php echo $fetchre['name'];?></option>
+                                    <?php } ?>
+                                    </select>
+                                    <td align="left" valign="middle">&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Marital Status<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp><select name="mstatus" size="1" class="regis_form_txtarea" id="mstatus" >
+                                    <option value="">No Preference</option>
+                                    <?php $sqlms=DB("SELECT * FROM maid_category WHERE type='ms'");
+                                    while($fetchms=mysql_fetch_array($sqlms))
+                                    {?>
+                                    <option value="<?php echo $fetchms['name'];?>"><?php echo $fetchms['name'];?></option>
+                                    <?php } ?>
+                                    </select></td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" nowrap>Number of Children</td>
+                                    <td colspan="3" align="left" valign="middle"><input name="child" type="text" class="regis_form_txtarea" id="child" maxlength="5" /></td>
+                                  </tr>
+                                  <!--<tr>
+                                    <td align="left" valign="top">Age Preference<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp><select name="age" size="1" class="regis_form_txtarea" id="age" >
+                                      <option value="">No Preference</option>
+                                      <?php $sqled=DB("SELECT * FROM maid_category WHERE type='agp'");
+                                    while($fetched=mysql_fetch_array($sqled))
+                                    {?>
+                                      <option value="<?php echo $fetched['name'];?>"><?php echo $fetched['name'];?></option>
+                                      <?php } ?>
+                                    </select></td>
+                                    <!--<td align="left" valign="middle" nowrap>&nbsp;</td>-->
+                                  </tr>
+                                   <tr>
+                                    <td align="left" valign="top">Education<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp>
+                                    <select name="edu" size="1" class="regis_form_txtarea" id="edu" >
+                                    <option value="">No Preference</option>
+                                    <?php $sqled=DB("SELECT * FROM maid_category WHERE type='ed'");
+                                    while($fetched=mysql_fetch_array($sqled))
+                                    {?>
+                                    <option value="<?php echo $fetched['name'];?>"><?php echo $fetched['name'];?></option>
+                                    <?php } ?>
+                                    </select>
+                                    <br/><span>Have a minimum eight years of formal education and possesses the necessary educational certificates as documentary proof of her education</span>
+                                                                       </td>
+                                  </tr>
+                                   <tr align="left">
+                                    <td colspan="4" valign="top"><strong>Professional Details</strong></td>
+                                    </tr>
+                                     <tr>
+                                    <td align="left" valign="top">Language<span class="mantory">* </span></td>
+                                    <td align="left" colspan="3">
+                                    <table width="100%" cellpadding="0" cellspacing="0">
+								<?php
+                                $sqllan=DB("SELECT * FROM maid_category WHERE type='lan'");
+                                while($fetchlan=mysql_fetch_array($sqllan))
+                                {?>
+                                  <tr>
+                                    <td width="30%" align="left" valign="middle"><label>
+                                  <?php echo $fetchlan['name'];?>
+                                    </label></td>
+                                    <td width="70%" align="left" valign="middle"><select name="lan[]" size="1" id="<?php if($fetchlan['name']=='Mandarin/Chinese'){ echo 'Mandarin'; }else{ echo $fetchlan['name'];}?>">
+                                      <option value="" >None</option>
+                                      <option value="CanLearn##<?php echo $fetchlan['categoryid'];?>">CanLearn</option>
+                                      <option value="Poor##<?php echo $fetchlan['categoryid'];?>">Poor</option>
+                                      <option value="Average##<?php echo $fetchlan['categoryid'];?>">Average</option>
+                                      <option value="Good##<?php echo $fetchlan['categoryid'];?>" >Good</option>
+                                      <option value="Excellent##<?php echo $fetchlan['categoryid'];?>">Excellent</option>
+                                    </select></td>
+                                  </tr>
+                                  <?php } ?>
+                                  </table></td></tr>
+                                  <tr>
+                                    <td rowspan="7" align="left" valign="top">Other Information</td>
+                                    <td align="left" valign="middle">Able to handle pork?</td>
+                                    <td align="left" valign="middle"><label>
+                                      <input type="radio" name="pork" id="pork" value="yes" />
+                                    </label>Yes<label><input name="pork" type="radio" id="pork" value="no" checked="checked" /></label>No</td>
+                                    <td rowspan="7" align="left" valign="middle">&nbsp;</td>
+                                  </tr>
+                                   <tr>
+                                    <td align="left" valign="middle">Able to eat pork?</td>
+                                    <td align="left" valign="middle"><label>
+                                      <input type="radio" name="epork" id="epork" value="yes" />
+                                    </label>Yes<label>
+                                      <input name="epork" type="radio" id="epork" value="no" checked="checked" /></label>No</td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Able to care dog/cat?</td>
+                                    <td align="left" valign="middle"><label>
+                                      <input type="radio" name="caredog" id="caredog" value="yes" />
+                                    </label>Yes<label> <input name="caredog" type="radio" id="caredog" value="no" checked="checked" /></label>No</td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Able to do simple sewing?</td>
+                                    <td align="left" valign="middle"><label>
+                                      <input type="radio" name="sewing" id="sewing" value="yes" />
+                                    </label>Yes<label>  <input name="sewing" type="radio" id="sewing" value="no" checked="checked" /></label>No</td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="middle" nowrap>Able to do gardening work?</td>
+                                    <td align="left" valign="middle"><label>
+                                      <input type="radio" name="garden" id="garden" value="yes" />
+                                    </label>Yes<label>  <input name="garden" type="radio" id="garden" value="no" checked="checked" /></label>No</td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Willing to wash car?</td>
+                                    <td align="left" valign="middle"><label>
+                                      <input type="radio" name="car" id="car" value="yes" />
+                                    </label>Yes<label>  <input name="car" type="radio" id="car" value="no" checked="checked" /></label>No</td>
+                                  </tr>
+                                   <tr>
+                                    <td align="left" valign="middle">Number of off-days per month: </td>
+                                    <td align="left" valign="middle"><input name="no_offday" type="text" id="no_offday" maxlength="5" /></td>
+                                  </tr>
+                                   <tr>
+                                    <td rowspan="5" align="left" valign="top" nowrap>Specialization</td>
+                                    <td width="33%" align="left" valign="middle">General Housekeeping </td>
+                                    <td width="23%" align="left" valign="middle">
+									<select name="house" size="1" id="house">
+                                      <option value="None" selected="selected">None</option>
+                                      <option value="Awful">Awful</option>
+                                      <option value="Poor">Poor</option>
+                                      <option value="Average">Average</option>
+                                      <option value="Good">Good</option>
+                                      <option value="Excellent">Excellent</option>
+                                    </select></td>
+                                    <td rowspan="5" align="left" valign="middle">&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Care for Young Children </td>
+                                    <td align="left" valign="middle"><select name="young" size="1" id="young">
+                                      <option value="None" selected="selected">None</option>
+                                      <option value="Awful">Awful</option>
+                                      <option value="Poor">Poor</option>
+                                      <option value="Average">Average</option>
+                                      <option value="Good">Good</option>
+                                      <option value="Excellent">Excellent</option>
+                                    </select></td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Care for Infant </td>
+                                    <td align="left" valign="middle"><select name="infant" size="1" id="infant">
+                                      <option value="None" selected="selected">None</option>
+                                      <option value="Awful">Awful</option>
+                                      <option value="Poor">Poor</option>
+                                      <option value="Average">Average</option>
+                                      <option value="Good">Good</option>
+                                      <option value="Excellent">Excellent</option>
+                                    </select></td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Cooking</td>
+                                    <td align="left" valign="middle"><select name="cook" size="1" id="cook">
+                                      <option value="None" selected="selected">None</option>
+                                      <option value="Awful">Awful</option>
+                                      <option value="Poor">Poor</option>
+                                      <option value="Average">Average</option>
+                                      <option value="Good">Good</option>
+                                      <option value="Excellent">Excellent</option>
+                                    </select></td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Care for Elderly/Disabled </td>
+                                    <td align="left" valign="middle"><select name="elder" size="1" id="elder">
+                                      <option value="None" selected="selected">None</option>
+                                      <option value="Awful">Awful</option>
+                                      <option value="Poor">Poor</option>
+                                      <option value="Average">Average</option>
+                                      <option value="Good">Good</option>
+                                      <option value="Excellent">Excellent</option>
+                                    </select></td>
+                                  </tr>
+                                  <tr>
+                                    <td rowspan="7" align="left" valign="top">Work Experience</td>
+                                    <td align="left" valign="middle">Home Country</td>
+                                    <td align="left" valign="middle"><input name="home" type="text" class="regis_form_txtarea" id="home" maxlength="10" /></td>
+                                    <td rowspan="7" align="left" valign="middle">&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Singapore</td>
+                                    <td align="left" valign="middle"><input name="singapore" type="text" class="regis_form_txtarea" id="singapore" maxlength="10" /></td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Malaysia</td>
+                                    <td align="left" valign="middle"><input name="malaysia" type="text" class="regis_form_txtarea" id="malaysia" maxlength="10" /></td>
+                                    </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Hongkong</td>
+                                    <td align="left" valign="middle"><input name="hongkong" type="text" class="regis_form_txtarea" id="hongkong" maxlength="10" /></td>
+                                    </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Taiwan</td>
+                                    <td align="left" valign="middle"><input name="taiwan" type="text" class="regis_form_txtarea" id="taiwan" maxlength="10" /></td>
+                                    </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Middle East</td>
+                                    <td align="left" valign="middle"><input name="meast" type="text" class="regis_form_txtarea" id="meast" maxlength="10" /></td>
+                                    </tr>
+                                  <tr>
+                                    <td align="left" valign="middle">Other Countries</td>
+                                    <td align="left" valign="middle"><input name="oc" type="text" class="regis_form_txtarea" id="oc" maxlength="10" /></td>
+                                  </tr>
+                                  <tr>
+                                  <td align="left" valign="top">Maid Introduction<span class="mantory">* </span></td>
+                                  <td colspan="3" align="left" valign="middle" nowrap><textarea name="about" id="about" cols="35" rows="6"></textarea></td>
+                                  </tr>
+                                  <?php } ?>
+                                </table>
+                             </div>
+                             <?php if(!isset($_REQUEST['suc'])){?>
+                            <div style="padding:10px 0 0 0;" align="center">
+                              <input type="submit" name="agesub" id="agesub" value="Submit" class="regis_form_button"/>
+                              </div>
+                              <?php } ?>
+                            </form>

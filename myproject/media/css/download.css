@@ -1,0 +1,155 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  background: rgb(255,255,255);
+  line-height: 37px;
+  font-family: Arial;
+}
+page[size="A4"] {
+  background: white;
+  width: 21cm;
+  height: 29.7cm;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+}
+@media print {
+  body, page[size="A4"] {
+  margin: 0;
+  box-shadow: 0;
+  }
+}
+
+.header h1{
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+ .header span {
+  font-size: 11px;
+}
+.section h3{
+  font-size: 14px;
+  font-weight: bold;
+}
+.section h3 u, .section h5 span{
+  padding-left: 20px;
+}
+.section h5{
+  font-size: 13px;
+  font-weight: bold;
+}
+.section .left {
+  float: left;
+  width: 500px;
+}
+.section .right {
+  float: left;
+  width: 280px;
+  height: 525px;
+  border: 1px solid #000;
+}
+.section li {
+  font-size: 13px;
+}
+.dob {
+  display: inline;
+}
+.dob span{
+  border: 1px solid;
+  margin-right: 1px;
+  padding: 4px 6px;
+}
+.photo {
+  padding; 10px;
+}
+.clear_both {
+  clear: both;
+}
+.grid_points ul {
+  float: left;
+  margin-left: 30px;
+}
+.grid_points li {
+  line-height: 25px;
+}
+.yes, .no {
+  margin: 7px 35px 0px 40px;
+  float: right;
+}
+.food ul li {
+  float: left;
+  margin-right: 80px;
+}
+.interview {
+  margin-left: 30px;
+}
+b {
+  font-weight: bold;
+}
+.table th {
+  text-align: center;
+}
+.table {
+  border: 1px solid #999;
+}
+.table td, .table th {
+  line-height: 15px;
+}
+.table th {
+  border: 1px solid #999;
+  background: #ccc;
+  padding: 5px;
+}
+.table td {
+  border: 1px solid #999;
+  padding: 5px;
+}
+.endpoints {
+  margin: 10px 0px 0px 50px;
+}
+.endpoints li{
+  list-style: circle;
+  line-height: 23px;
+}

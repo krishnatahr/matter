@@ -1,0 +1,102 @@
+{% load ad_rotator_tags %}
+{% block content %}
+							<table width="94%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td align="left" class="search_box" style="background: #e19819; border-color: #015634;">
+									<form action="/maid_list/" method="POST">
+										{% csrf_token %}
+										<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr>
+												<td colspan="3" class="quick_search_title">Quick Search</td>
+											</tr>
+											<tr>
+												<td colspan="3" style="height:20px;">&nbsp;</td>
+											</tr>
+											<tr>
+												<td width="40%" class="quick_search_txt">Bio-data created within</td>
+												<td width="4%" class="quick_search_txt">:</td>
+												<td width="56%" align="right">
+													<select name="created_date" size="1" class="quick_search_area" id="select2">
+														<option value="">No Preference</option>
+														<option value="7">Less than 7 Days</option>
+														<option value="15">Less than 15 Days</option>
+														<option value="30">Less than 30 Days</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="3" style="height:20px;">&nbsp;</td>
+											</tr>
+											<tr>
+												<td class="quick_search_txt">Type of Maid</td>
+												<td class="quick_search_txt">:</td>
+												<td>
+													<select name="maid_type" size="1" class="quick_search_area" id="select3">
+														<option value="">No Preference</option>
+														<option value="Fresh Maid">Fresh Maid</option>
+														<option value="Experienced Maid">Experienced Maid</option>
+														<option value="Transfer Maid">Transfer Maid</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="3" style="height:20px;">&nbsp;</td>
+											</tr>
+											<tr>
+												<td class="quick_search_txt">Country</td>
+												<td class="quick_search_txt">:</td>
+												<td>
+													<select name="country" size="1" class="quick_search_area" id="select2">
+														<option value="">No Preference</option>
+														<option value="Bangladesh">Bangladesh</option>
+														<option value="Cambodia">Cambodia</option>
+														<option value="India">India</option>
+														<option value="Indonesia">Indonesia</option>
+														<option value="Malaysia">Malaysia</option>
+														<option value="Myanmar">Myanmar</option>
+														<option value="Philippines">Philippines</option>
+														<option value="Sri Lanka">Sri Lanka</option>
+														<option value="Thailand">Thailand</option>
+														<option value="Viet Nam">Viet Nam</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="3" style="height:20px;">&nbsp;</td>
+											</tr>
+											<tr>
+												<td class="quick_search_txt">Marital Status</td>
+												<td class="quick_search_txt">:</td>
+												<td>
+													<select name="maritial_status" size="1" class="quick_search_area" id="select8">
+														<option value="">No Preference</option>
+														<option value="2">Single</option>
+														<option value="3">Married</option>
+														<option value="4">Divorced</option>
+														<option value="5">Separated</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="3" style="height:20px;">&nbsp;</td>
+											</tr>
+										</table>
+										<input type="submit" name="" value="Search" class="search_btn" style="width: 100%;"/>
+									</form>
+								</td>
+							</tr>
+							<tr>
+								<td align="left" bgcolor="#fff">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+												<div class="banner_botttom" style="text-align: center;">
+							            {% right_banner %}
+							          </div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+{% endblock %}

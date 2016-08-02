@@ -1,0 +1,139 @@
+{% load ad_rotator_tags %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Singapore :: Maid Agency</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+<script src="{{static}}/media/js/validjquery.js" type="text/javascript"></script>
+<script src="{{static}}/media/js/validjquerylist.js" type="text/javascript"></script>
+<script type="text/javascript" src="{{static}}/media/js/thickbox.js"></script>
+<script src="{{static}}/media/js/sss.min.js"></script>
+<link rel="stylesheet" href="{{static}}/media/css/sss.css" type="text/css" media="all">
+<script>
+  jQuery(function($) {
+    $('.slider').sss();
+    // Login Form
+
+    $(function() {
+        var button = $('#loginButton');
+        var box = $('#loginBox');
+        var form = $('#loginForm');
+        button.removeAttr('href');
+        button.mouseup(function(login) {
+            box.toggle();
+            button.toggleClass('active');
+        });
+        form.mouseup(function() {
+            return false;
+        });
+        $(this).mouseup(function(login) {
+            if(!($(login.target).parent('#loginButton').length > 0)) {
+                button.removeClass('active');
+                box.hide();
+            }
+        });
+    });
+
+  });
+</script>
+<link href="{{static}}/media/css/main_style.css" rel="stylesheet" type="text/css" />
+{% block extra_head_content %}{% endblock %}
+</head>
+<body>
+<center>
+  <div class="main_wrapper">
+    <div class="inner_wrapper">
+      <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td class="header">
+                {% if logo %}
+                  <img src="{{static}}/media/{{logo.logo}}" alt="" width="" height="" />
+                {% else %}
+                  <img src="{{static}}/media/images/header.jpg" alt="" width="1000" height="140" />
+                {% endif %}
+              </td>
+						</tr>
+						<tr>
+							<td class="top_nav" style="background: #e19819 !important;">
+								<a href="/">Home</a> &nbsp;|&nbsp;
+								<a href="/aboutus/">About Us</a> &nbsp;|&nbsp;
+								<a href="/maid_search/">Search Maid</a> &nbsp;|&nbsp;
+								<a href="/maid_list/">Maid List</a> &nbsp;|&nbsp;
+								<a href="/services/">Services</a> &nbsp;|&nbsp;
+								<a href="/faq/">FAQ</a> &nbsp;|&nbsp;
+								<a href="/contactus/">Contact Us</a>
+								{% if request.user.is_authenticated %}
+									&nbsp;|&nbsp; <a href="/agency_profile/">My Account</a>
+                  &nbsp;|&nbsp; <a href="/logout_view/">Logout</a>
+                {% else %}
+                  <div id="loginContainer"``>
+                      <a href="/login_view/" id="loginButton"><span>Login</span><em></em></a>
+                      <div style="clear:both"></div>
+                      <div id="loginBox" style="{% if request.GET.q == '1' %}display: block;{% endif %}">
+                          <form id="loginForm" name="login" method="POST" action="/login_view/">
+                              {% csrf_token %}
+                              <input type="hidden" name="next" value="{{request.path}}"/>
+                              <fieldset id="body">
+                                  <fieldset>
+                                      <label for="email">Email Address</label>
+                                      <input type="text" name="username" id="email" class="{% if request.GET.q == '1' %}login_error{% endif %}"/>
+                                  </fieldset>
+                                  <fieldset>
+                                      <label for="password">Password</label>
+                                      <input type="password" name="password" id="password" class="{% if request.GET.q == '1' %}login_error{% endif %}"/>
+                                  </fieldset>
+                                  <input type="submit" id="login" value="Sign in" />
+                                  <!--<label for="checkbox"><input type="checkbox" id="checkbox" />Remember me</label>-->
+                              </fieldset>
+                              <!--<span><a href="#">Forgot your password?</a></span>-->
+                          </form>
+                      </div>
+                      <div style="clear:both"></div>
+                  </div>
+                  <div style="clear:both"></div>
+                  <!-- Login Ends Here -->
+								{% endif %}
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+										{% block content %}
+
+										{% endblock %}
+
+							<td width="30%" align="right" valign="top" style="margin-top: 10px;">
+								{% include "right.html" %}
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+      <tr>
+        <td>
+          <div class="banner_botttom" style="height: 140px; text-align: center;">
+            {% get_banner %}
+          </div>
+        </td>
+      </tr>
+{% include "footer.html" %}
+<div class="videopopup_holder">
+  <div class="vid_title">
+    <h3>Send to Friend</h3>
+        <div class="close_btn">X</div><!--close_btn-->
+      <div class="clear_all"></div>
+    </div>
+    <div class="video_block">
+      <form name="share_form" id="share_form" method="POST">
+      {% csrf_token %}
+      <input type="email" value="" title="Enter your friend Email address" name="email" id="email" style="width: 93%;" />
+      <input type="submit" value="Send to friend" class="plan_btn_nav" />
+    </form>
+    </div><!--video_block-->
+</div>
+<div class="popup_shadow"></div>

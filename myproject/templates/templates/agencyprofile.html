@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block content %}
+ <tr>
+        <td class="content_body"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="70%" align="left" valign="top"><div class="inner_content">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td class="title1">Agency Profile</td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td width="100%" colspan="2" align="left" valign="top"><div class="detail_div">
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td colspan="2" align="left" valign="top" style="padding-bottom:5px;">
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td width="20%" class="detail_title1">{% if agency_details.agencyname %}{{agency_details.agencyname}}{% endif %}<br/>
+                                              <span class="detail_title_sub">Licence No. : </span>
+											  <span class="detail_price">{{agency_details.licence_no}}</span>
+                                              </td>
+                                              <td width="80%" align="right" class="detail_button">
+													<a href="/edit_account/">Edit Profile</a> &nbsp; 
+                                                  <a href="/add_maid/">Add Maid</a> &nbsp; 
+												  <a href="/agency_maid_list/">List of Maids</a>
+												<!--<a href="/add_agency/">Add Agency</a>-->
+                                              </td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr>
+                                        <td width="30%" align="left" valign="top" style="padding-right:10px;"><table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td class="detail_img">
+												<img src="{{static}}/media/{{agency_details.logo}}" width="258" height="294" alt="">
+											 </td>
+                                            </tr>
+                                            <tr>
+                                              <td style="height:15px"></td>
+                                            </tr>
+                                        </table></td>
+                                        <td width="70%" align="left" valign="top">
+											<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td><table width="100%" border="0" cellspacing="0" cellpadding="0" class="detail_table">
+                                                  <tr>
+                                                    <td class="detail_row"><strong>Address</strong></td>
+                                                    <td colspan="6" class="detail_row">: {% if agency_details.address %}{{agency_details.address}}{% endif %}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td width="133" class="detail_row detail_row_bg1"><strong>Office No</strong></td>
+                                                    <td width="535" colspan="6" class="detail_row detail_row_bg1">:  {% if agency_details.office_no %}{{agency_details.office_no}}{% endif %}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row"><strong>Fax</strong></td>
+                                                    <td colspan="6" class="detail_row detail_link">:  {% if agency_details.fax %}{{agency_details.fax}}{% endif %}</a></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>Contact Person</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">:  {% if agency_details.contact_person %}{{agency_details.contact_person}}{% endif %}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row"><strong>Mobile</strong></td>
+                                                    <td colspan="6" class="detail_row">: {% if agency_details.mobile %}{{agency_details.mobile}}{% endif %}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>Email</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">: {% if agency_details.email %}{{agency_details.email}}{% endif %}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row "><strong>2<sup>nd</sup> Contact Person</strong></td>
+                                                    <td colspan="6" class="detail_row ">: {% if agency_details.second_contact_person %}{{agency_details.second_contact_person}}{% endif %}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>2<sup>nd</sup> Mobile No</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">: {% if agency_details.second_mobile_no %}{{agency_details.second_mobile_no}}{% endif %}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row"><strong>2<sup>nd</sup> Email</strong></td>
+                                                    <td colspan="6" class="detail_row">: {% if agency_details.second_Email %}{{agency_details.second_Email}}{% endif %}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>Office Hour</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">:{% if agency_details.office_hours %}{{agency_details.office_hours}}{% endif %}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>Number of Maids</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">: {{noofmaids}}</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="detail_row detail_row_bg1"><strong>Last updated</strong></td>
+                                                    <td colspan="6" class="detail_row detail_row_bg1">: </td>
+                                                  </tr>
+                                              </table></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" align="left"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td width="2%" class="htip_topl"></td>
+                                              <td width="96%" class="htip_topbg"></td>
+                                              <td width="2%" class="htip_topr"></td>
+                                            </tr>
+                                            <tr>
+                                              <td class="htip_botl"></td>
+                                              <td class="htip_botbg"></td>
+                                              <td class="htip_botr"></td>
+                                            </tr>
+                                        </table></td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" align="left">&nbsp;</td>
+                                      </tr>
+                                    </table>
+                                </div></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td width="2%" class="htip_topl"></td>
+                                      <td width="96%" class="htip_topbg"></td>
+                                      <td width="2%" class="htip_topr"></td>
+                                    </tr>
+                                    <tr>
+                                      <td class="htip_botl"></td>
+                                      <td class="htip_botbg"></td>
+                                      <td class="htip_botr"></td>
+                                    </tr>
+                                </table></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_txt">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_title"><?php echo $agencyname;?></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_txt" style="padding-top:10px;"> <?php echo $description;?>
+                                  <h1>&nbsp;</h1></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_line">&nbsp;</td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                      </table></td>
+                    </tr>
+                  </table>
+                </div>
+{% endblock %}

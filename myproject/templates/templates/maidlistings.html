@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+ <tr>
+        <td class="content_body"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="70%" align="left" valign="top"><div class="inner_content">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td class="title1">Maid List</td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td width="100%" colspan="2" align="left" valign="top">
+						   <table width="99%" border="0" align="center" cellpadding="1" cellspacing="1" class="full">
+						   {% if maid_list %}
+						  <tr>
+							<th width="5%" align="center" valign="middle" class="table_title">S.No</th>
+							<th width="18%" align="center" valign="middle" class="table_title" nowrap>Maid Photo</th>
+							<th width="15%" align="center" valign="middle" class="table_title" nowrap>Maid Name</th>
+							<th width="15%" align="center" valign="middle" class="table_title">Maid Type</th>
+							<th width="10%" align="center" valign="middle" class="table_title">Nationality</th>
+							<th width="15%" align="center" valign="middle" class="table_title">Date</th>
+							<th width="22%" align="center" valign="middle" class="table_title">Actions</th>
+							</tr>
+							{% for i in maid_list %}
+							<tr>
+								<td align="center" valign="middle">{{forloop.counter}}</td>
+								<td align="center" valign="middle">
+									<img src="{{static}}/media/{{i.image}}" width='66' height='75' />
+								</td>
+								<td align="left" valign="middle" style="padding-left:15px;">{{i.name}}
+								</td>
+								<td align="center" valign="middle">{{i.types}}</td>
+								<td align="left" valign="middle" style="padding-left:30px;">{{i.nationality}}</td>
+								<td align="center" valign="middle" nowrap>
+									{{i.dob}}
+								</td>
+								<td align="center" valign="middle">
+								<a href="/maid_edit/{{i.pk}}/">
+									<img src="{{static}}/media/images/edit.png" border="0" alt="" /></button>
+								</a>&nbsp; 
+								<a href="/maid_profile/{{i.pk}}" target="_blank">
+									<img src="{{static}}/media/images/view.png" border="0" alt="">
+								</a>&nbsp; 
+								<form style="display: inline;" method="post" action="/maid_delete/">
+									{% csrf_token %}									
+									<input type="hidden" value="{{i.pk}}" name="delete_id">
+									<button type="submit" style="background: none; border: none; cursor: pointer;"><img src="{{static}}/media/images/delete-icon.gif" border="0" alt=""/></button>
+								</form>
+								</td>
+						  </tr>
+						  {% endfor %}
+						  <tr><td colspan="8">&nbsp;</td></tr>
+						  <td colspan="8" align="right" style="border-top:#CCCCCC 1px solid;padding-top:10px;">
+							<div class="pagination"></div>
+						  </td>
+						{% else %}
+						  <tr><td align="center" colspan="8" style="color:#F00; font-weight:bold;">No Records Found</td></tr>
+						 {% endif %}
+                    </table>
+								
+								
+								</td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td width="2%" class="htip_topl"></td>
+                                      <td width="96%" class="htip_topbg"></td>
+                                      <td width="2%" class="htip_topr"></td>
+                                    </tr>
+                                    <tr>
+                                      <td class="htip_botl"></td>
+                                      <td class="htip_botbg"></td>
+                                      <td class="htip_botr"></td>
+                                    </tr>
+                                </table></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_txt">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_title"><?php echo $agencyname;?></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_txt" style="padding-top:10px;"> <?php echo $description;?>
+                                  <h1>&nbsp;</h1></td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" align="left" class="detail_line">&nbsp;</td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                      </table></td>
+                    </tr>
+                  </table>
+                </div>
+{% endblock %}

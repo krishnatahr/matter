@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+	<tr>
+        <td class="content_body">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="70%" align="left" valign="top">
+							<div class="header_banner">
+								{% if banner %}
+									<div class="slider">
+										{% for i in banner %}
+											<img src="{{static}}/media/{{i.image}}" width="700" height="265"/>
+										{% endfor %}
+									</div>
+								{% else %}
+									<img src="{{static}}/media/images/banner_home.jpg" alt="" width="700" height="265" />
+								{% endif %}
+							</div>
+							<div class="inner_content">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td class="aboutus_bg">
+											{% if home_content %}
+												<h1>{{home_content.title}}</h1>
+												{{home_content.short_text|safe}}
+											{% else %}
+												<h1>Welcome to Maid Wala </h1>
+												<p align="justify">Maid wala is an Indian owned maid agency, servicing     all nationalities like Indians,Srilankan,Filipinos, Foreign expatriates     in Singapore and other Individuals seeking our services by providing     them with reliable and trust worthy Foreign Domestic Worker. Our FDW   are   trained to serve. Maid wala is fully understand what are the   employer   needs, for that we always ask what is the employer preference   and give   them the FDW that will suit according to their   preference.With Maid wala, only qualified people are   placed for your   requirements of maid. We conduct thorough background   checks so you feel   safe and secure with your choice of maid. Don't   settle for anything less   than the best when it comes hiring a maid. We   specialize in domestic   placement in singapore. </p>
+											{% endif %}
+										</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+									</tr>
+									<tr>
+										<td>
+											<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+												<tr>
+													<td class="title1">Most Recent Maids</td>
+												</tr>
+												<tr>
+													<td valign="top">&nbsp;</td>
+												</tr>
+												<tr>
+													<td valign="top">
+														<table width="100%" border="0" cellspacing="0" cellpadding="0">
+															<tr>
+																{% for i in maid %}
+																	<td>
+																		<a href="/maid_profile/{{i.pk}}/" class="maid_box_link">
+																			<div class="maid_box1">
+																				<img src="{{static}}/media/{{i.image}}" alt="" width="98" height="123" /><br />
+																				<h1>{{i.name}}</h1>
+																				<h2>{{i.nationality}}</h2>
+																				<h3>{{i.agency.agency_name}}</h3>
+																				<span class="star">
+																					<img src="{{static}}/media/images/star_icon.gif" alt="" />
+																					<img src="{{static}}/media/images/star_icon.gif" alt="" />
+																					<img src="{{static}}/media/images/star_icon.gif" alt="" />
+																					<img src="{{static}}/media/images/star_icon.gif" alt="" />
+																					<img src="{{static}}/media/images/star_icon.gif" alt="" />
+																				</span>
+																			</div>
+																		</a>
+																	</td>
+																	{% if forloop.counter|divisibleby:"4" %}
+																</tr>
+																<tr>
+																	{% endif %}
+																	{% endfor %}
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+									</tr>
+								</table>
+							</div>
+{% endblock %}

@@ -1,0 +1,635 @@
+{% extends 'base.html' %}
+{% block extra_head_content  %}
+<style>
+label.error { /* background:url("images/unchecked.gif") no-repeat 0px 0px;*/
+  padding-left: 16px;
+  padding-bottom: 2px;
+  font-weight: normal;
+  font-size:9px;
+  color: #EA5200;
+}
+#upload{
+	font-family:Arial, Helvetica, sans-serif;
+	text-align:center;
+	color:#0099FF;
+	width:110px;
+	cursor:pointer !important;
+}
+#upload1{
+	font-family:Arial, Helvetica, sans-serif;
+	text-align:center;
+	color:#0099FF;
+	width:110px;
+	cursor:pointer !important;
+}
+#upload2{
+	font-family:Arial, Helvetica, sans-serif;
+	text-align:center;
+	color:#0099FF;
+	width:110px;
+	cursor:pointer !important;
+}
+#maidreg1 ul {
+  margin: 0px;
+}
+#maidreg1 ul li {
+  background: none;
+  float: left;
+  width: 125px;
+  padding-left: 0px;
+}
+form#maidreg1 input, form#maidreg1 textarea, form#maidreg1 select {
+  width: 260px;
+}
+form#maidreg1 ul li input {
+  width: auto;
+}
+.fdw input {
+  width: auto !important;
+}
+.interview li {
+  float: none !important;
+  width: auto !important;
+}
+.ex_header {
+  float: left;
+  width: 25%;
+  border: 1px solid #999;
+  min-height: 100px;
+  text-align: center;
+}
+.ex_cover2 {
+  margin: 5px 0px;
+}
+.ex_cover2 .point {
+  float: left;
+  width: 159px;
+}
+.ex_cover2 input {
+  width: auto !important;
+  float: left;
+}
+#id_sg_children_0, #id_sg_elderly_0, #id_sg_disabled_0, #id_sg_housework_0,
+#id_sg_cooking_0, #id_sg_language_0, #id_sg_other_0, #id_ov_children_0,
+#id_ov_elderly_0, #id_ov_disabled_0, #id_ov_housework_0, #id_ov_cooking_0,
+#id_ov_language_0, #id_ov_other_0 {
+  width: 85px !important;
+  margin-right: 1px;
+    float: left;
+}
+#id_sg_children_1, #id_sg_elderly_1, #id_sg_disabled_1, #id_sg_housework_1,
+#id_sg_cooking_1, #id_sg_language_1, #id_sg_other_1, #id_ov_children_1,
+#id_ov_elderly_1, #id_ov_disabled_1, #id_ov_housework_1, #id_ov_cooking_1,
+#id_ov_language_1, #id_ov_other_1 {
+  width: 154px !important;
+  margin-right: 1px;
+}
+#id_sg_children_2, #id_sg_elderly_2, #id_sg_disabled_2, #id_sg_housework_2,
+#id_sg_cooking_2, #id_sg_language_2, #id_sg_other_2, #id_ov_children_2,
+#id_ov_elderly_2, #id_ov_disabled_2, #id_ov_housework_2, #id_ov_cooking_2,
+#id_ov_language_2, #id_ov_other_2 {
+  width: 213px !important;
+  margin-right: 1px;
+}
+#id_sg_child_age, #id_sg_cook_cusine, #id_sg_languages, #id_sg_others,
+#id_ov_child_age, #id_ov_cook_cusine, #id_ov_languages, #id_ov_others {
+  width: 136px !important;
+}
+.row_wrapper {
+  padding: 5px 0px;
+}
+.ex_table table {
+    border-collapse: collapse;
+}
+
+.ex_table table, .ex_table thead td, .ex_table th {
+    border: 1px solid black;
+    text-align: center;
+}
+#id_ov_history1_0, #id_ov_history1_1, #id_ov_history2_0, #id_ov_history2_1{
+  width:74px !important;
+  margin-right: 1px;
+}
+#id_ov_history1_2, #id_ov_history1_3, #id_ov_history2_2, #id_ov_history2_3 {
+  width: 100px !important;
+  margin-right: 1px;
+}
+#id_ov_history1_4, #id_ov_history2_4 {
+  width: 150px !important;
+  margin-right: 1px;
+}
+#id_ov_history1_5, #id_ov_history2_5 {
+  width: 85px !important;
+}
+#id_singapore_history {
+  float: right;
+  margin-top: -6px !important;
+}
+#id_fdw_availability li {
+  float: none !important;
+  width: auto !important;
+}
+.has_error input{
+  border: 1px solid red;
+}
+</style>
+{% endblock %}
+{% block content %}
+<tr>
+		<td class="content_body"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="70%" align="left" valign="top"><div class="inner_content">
+			             <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                     <tr>
+                       <td class="aboutus_bg"><h1>New Maid <a href="/agency_maid_list/" style="float:right;">List of Maids</a></h1>
+                        <form name="maidreg1" id="maidreg1" method="post" enctype="multipart/form-data">
+							              {% csrf_token %}
+                             <div class="regis_topbox">
+                                <table width="100%" border="0" cellspacing="4" cellpadding="0" class="regis_form_txt">
+                                    <tr>
+                                      <td colspan="4" align="center" valign="top" style="color:#F00;">
+									                            {% if success_msg %}Your maid details have been successfully added!{% endif %}
+                                      </td>
+                                      </tr>
+                                      <tr>
+                                      <td align="left" valign="top">Agency<span class="mantory">* </span></td>
+                                      <td colspan="3" align="left" valign="middle" nowarp>
+                                        {{maid_form.agency}}
+                                      </td>
+                                      </tr>
+                                    <tr>
+                                    <td align="left" valign="top">Type<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp>
+                                      {{ maid_form.types }}
+                                    </td>
+                                    </tr>
+                                  <tr>
+                                    <td width="26%" align="left" valign="top" nowrap>Maid Name<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp {% if maid_form.name.errors %}class="has_error"{% endif %}>
+										                          <p>{{ maid_form.name }}
+                                      <br /></p></td>
+                                    </tr>
+                                    <tr>
+                                      <td width="26%" align="left" valign="top" nowrap>Maid Name<span class="mantory">* </span></td>
+                                      <td colspan="3" align="left" valign="middle" nowarp {% if maid_form.image.errors %}class="has_error"{% endif %}>
+  										                          <p>{{ maid_form.image }}
+                                        <br /></p></td>
+                                      </tr>
+                                      <tr>
+                                        <td width="26%" align="left" valign="top" nowrap>Maid Name<span class="mantory">* </span></td>
+                                        <td colspan="3" align="left" valign="middle" nowarp {% if maid_form.image.errors %}class="has_error"{% endif %}>
+    										                          <p>{{ maid_form.image1 }}
+                                          <br /></p></td>
+                                        </tr>
+                                        <tr>
+                                          <td width="26%" align="left" valign="top" nowrap>Maid Name<span class="mantory">* </span></td>
+                                          <td colspan="3" align="left" valign="middle" nowarp {% if maid_form.image.errors %}class="has_error"{% endif %}>
+      										                          <p>{{ maid_form.image2 }}
+                                            <br /></p></td>
+                                          </tr>
+                                    <tr>
+                                      <td width="26%" align="left" valign="top" nowrap>Base Salary<span class="mantory">* </span></td>
+                                      <td colspan="3" align="left" valign="middle" nowarp {% if maid_form.base_salary.errors %}class="has_error"{% endif %}>
+  										                          <p>{{maid_form.base_salary}}
+                                        <br /></p></td>
+                                      </tr>
+                                    <tr>
+										<td align="left" valign="top">Date of Birth<span class="mantory">* </span></td>
+										<td colspan="3" align="left" style="margin: 0 0 0 0;padding: 0;" nowarp {% if maid_form.dob.errors %}class="has_error"{% endif %}>
+											{{maid_form.dob}}
+											<br/><span>Formate(1985-08-25). For first-time applicants: Aged 23 years or above, and below 50 years old at the time of the Work Permit application.</span>
+										</td>
+                                    </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Age Preference<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp>
+									                      {{maid_form.age}}
+									</td>
+                                  </tr>
+                                    <tr>
+										<td align="left" valign="top">Place of Birth<span class="mantory"></span></td>
+										<td colspan="3" align="left" style="margin: 0 0 0 0;padding: 0;" nowarp>
+											{{maid_form.birth_place}}
+											<br/><span>Please enter place of country.</span>
+										</td>
+                                    </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Height</td>
+                                    <td colspan="3" align="left" valign="middle">
+									                             {{maid_form.height}} cm
+									                    </td>
+                                    </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Weight</td>
+                                    <td colspan="2" align="left" valign="middle">
+									                             {{maid_form.weight}} kg
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Nationality<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp>
+                                      {{maid_form.nationality}}
+									                          <br/>
+                                            <span>From an approved source country/territory. These countries/territories include Bangladesh, Hong Kong, India, Indonesia, Macau, Malaysia, The Republic of the Union of Myanmar, Philippines, South Korea, Sri Lanka, Taiwan, and Thailand.</span>
+                                                                                  </td>
+                                    </tr>
+                                  <tr>
+									<td align="left" valign="top">Residential address in home country<span class="mantory"></span></td>
+									<td colspan="3" align="left" valign="middle" nowrap>
+										{{maid_form.resident}}
+									</td>
+                                  </tr>
+                                  <tr>
+									<td align="left" valign="top">Name of port / airport to be repatriated to<span class="mantory"></span></td>
+									<td colspan="3" align="left" valign="middle" nowrap>
+										{{maid_form.repatriat}}
+									</td>
+                                  </tr>
+                                  <tr>
+									<td align="left" valign="top">Contact number in home country<span class="mantory"></span></td>
+									<td colspan="3" align="left" valign="middle" nowrap>
+										{{maid_form.phone}}
+									</td>
+                                  </tr>
+
+                                   <tr>
+                                    <td align="left" valign="top">Religion</td>
+                                    <td colspan="2" align="left" valign="middle">
+                                     {{maid_form.religion}}
+                                    </td>
+                                  </tr>
+                                   <tr>
+                                    <td align="left" valign="top">Education<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp>
+                                        {{maid_form.education}}
+                                    <br/><span>Have a minimum eight years of formal education and possesses the necessary educational certificates as documentary proof of her education</span>
+                                                                       </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" nowrap>Number of Siblings</td>
+                                    <td colspan="3" align="left" valign="middle">
+                                      {{maid_form.no_of_sibling}}
+									                  </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Marital Status<span class="mantory">* </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp>
+                                      {{maid_form.mstatus}}
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" nowrap>Number of Children</td>
+                                    <td colspan="3" align="left" valign="middle">
+									                          {{maid_form.no_of_child}}
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top" nowrap>Age(s) of children (if any):</td>
+                                    <td colspan="3" align="left" valign="middle">
+									                             {{maid_form.age_of_child}}
+                                              </td>
+                                  </tr>
+                                  <tr align="left">
+                                   <td colspan="4" valign="top"><strong>Medical History/Dietary Restrictions</strong></td>
+                                   </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Allergies (if any)<span class="mantory"> </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp>
+                                        {{maid_form.allergies}}
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Past and existing illnesses (including chronic ailments and illnesses requiring medication)<span class="mantory"> </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp>
+                                      {{maid_form.illness}}
+									                  </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Physical disabilities<span class="mantory"> </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp>
+                                      {{maid_form.disabilities}}
+									                  </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Dietary restrictions<span class="mantory"> </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp>
+                                      {{maid_form.dietary_restrictions}}
+									                  </td>
+                                  </tr>
+                                  <tr>
+                                    <td align="left" valign="top">Food handling preferences<span class="mantory"> </span></td>
+                                    <td colspan="3" align="left" valign="middle" nowarp>
+                                     {{maid_form.food_handle}}
+                                      <div style="clear: both;">if others specify {{maid_form.food_other}}</div>
+									                  </td>
+                                  </tr>
+
+                                   <tr align="left">
+                                    <td colspan="4" valign="top"><strong>Others</strong></td>
+                                    </tr>
+                                     <tr>
+                                    <td align="left" valign="top">Preference for rest day(s) per month.<span class="mantory">* </span></td>
+                                    <td align="left" colspan="3">{{maid_form.off_days}}
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                 <td align="left" valign="top">Any other remarks.<span class="mantory">* </span></td>
+                                 <td align="left" colspan="3">{{maid_form.remarks}}</td>
+                               </tr>
+                               <tr align="left">
+                                <td colspan="4" valign="top"><strong>Method of Evaluation of Skills</strong></td>
+                                </tr>
+                                  <tr>
+                                    <td colspan="4" valign="top" class="fdw">
+                                      {{maid_form.no_eval}} Based on FDW’s declaration, no evaluation/observation by Singapore EA or overseas training centre/EA
+                                    </td>
+                                  </tr>
+                                   <tr>
+                                    <td colspan="4" valign="top" class="fdw">{{maid_form.sg_eval}} Interviewed by Singapore EA</td>
+                                  </tr>
+                                  <tr>
+                                      <td align="left" valign="top"></td>
+                                      <td align="left" valign="middle" class="interview">
+                                        {{maid_form.sg_interview_type}}
+                                      </td>
+                                    </tr>
+                                  <tr align="left">
+                                   <td colspan="4" valign="top"><strong>Experience & Skillset</strong></td>
+                                   </tr>
+
+                                   <tr align="left">
+                                    <td colspan="2" valign="top">
+                                      <div class="ex_cover">
+                                        <div class="ex_header"><b>Areas of Work</b></div>
+                                        <div class="ex_header" style="width: 14%; border-left: none; border-right: none;"><b>Willingness</b><br>Yes/No</div>
+                                        <div class="ex_header"><b>Experience</b> <br>Yes/No<br>If yes, state the no. of years</div>
+                                        <div class="ex_header" style="width: 35%; border-left: none;"><b>Assessment/Observation</b><br>
+                                            Please state qualitative observations of FDW and/or rate the
+                                            FDW (indicate N.A. of no evaluation was done)
+                                            Poor ……………………Excellent...N.A
+                                          1 2 3 4 5 N.A
+                                        </div>
+                                        <div class="clear_both"></div>
+                                      </div>
+                                      <div class="row_wrapper">
+                                        <div class="ex_cover2">
+                                            <div class="point">Care of infants/children<br>
+                                              Please specify age range:
+                                              {{maid_form.sg_child_age}}
+                                            </div>
+                                            <div>{{maid_form.sg_children}}</div>
+                                        </div>
+                                        <div class="clear_both"></div>
+                                      </div>
+
+                                      <div class="row_wrapper">
+                                        <div class="ex_cover2">
+                                            <div class="point">Care of elderly</div>
+                                            </div>
+                                            <div>{{maid_form.sg_elderly}}</div>
+                                        </div>
+                                        <div class="clear_both"></div>
+                                      </div>
+                                      <div class="row_wrapper">
+                                      <div class="ex_cover2">
+                                          <div class="point">Care of disabled</div>
+                                          </div>
+                                          <div>{{maid_form.sg_disabled}}</div>
+                                      </div>
+                                      <div class="clear_both"></div>
+                                    </div>
+                                    <div class="row_wrapper">
+                                      <div class="ex_cover2">
+                                          <div class="point">General housework</div>
+                                          </div>
+                                          <div>{{maid_form.sg_housework}}</div>
+                                          <div class="clear_both"></div>
+                                      </div>
+                                      <div class="ex_cover2">
+                                          <div class="point">Cooking <br>
+                                            Please specify cuisines: {{maid_form.sg_cook_cusine}}</div>
+                                          </div>
+                                          <div>{{maid_form.sg_cooking}}</div>
+                                      </div>
+                                      <div class="clear_both"></div>
+                                    </div>
+                                    <div class="row_wrapper">
+                                      <div class="ex_cover2">
+                                          <div class="point">Language abilities (spoken)<br>
+                                          Please specify: {{maid_form.sg_languages}}
+                                        </div>
+                                          </div>
+                                          <div>{{maid_form.sg_language}}</div>
+                                      </div>
+                                      <div class="clear_both"></div>
+                                    </div>
+                                    <div class="row_wrapper">
+                                      <div class="ex_cover2">
+                                          <div class="point">Other skills, if any<br>
+                                          Please specify: {{maid_form.sg_others}}
+                                        </div>
+                                          </div>
+                                          <div>{{maid_form.sg_other}}</div>
+                                      </div>
+                                      <div class="clear_both"></div>
+                                    </div>
+                                    </td>
+                                    </tr>
+
+                                    <tr>
+                                     <td colspan="4" valign="top" class="fdw">
+                                       {{maid_form.ov_eval}} Interviewed by overseas training centre /<br>
+                                        EA (Please state name of foreign training centre / EA: {{maid_form.ov_ea_name}}
+                                     </td>
+                                   </tr>
+                                   <tr>
+                                    <td colspan="4" valign="top" class="fdw">
+                                      State if the third party is certified (e.g. ISO9001) or audited periodically by the EA: {{maid_form.ov_ea_certify}}
+                                    </td>
+                                  </tr>
+
+                                   <tr>
+                                       <td align="left" valign="top"></td>
+                                       <td align="left" valign="middle" class="interview">
+                                         {{maid_form.ov_interview_type}}
+                                       </td>
+                                     </tr>
+
+                                     <tr align="left">
+                                       <td colspan="4" valign="top"><strong>Experience & Skillset</strong></td>
+                                     </tr>
+                                    <tr align="left">
+                                     <td colspan="2" valign="top">
+                                       <div class="ex_cover">
+                                         <div class="ex_header"><b>Areas of Work</b></div>
+                                         <div class="ex_header" style="width: 14%; border-left: none; border-right: none;"><b>Willingness</b><br>Yes/No</div>
+                                         <div class="ex_header"><b>Experience</b> <br>Yes/No<br>If yes, state the no. of years</div>
+                                         <div class="ex_header" style="width: 35%; border-left: none;"><b>Assessment/Observation</b><br>
+                                             Please state qualitative observations of FDW and/or rate the
+                                             FDW (indicate N.A. of no evaluation was done)
+                                             Poor ……………………Excellent...N.A
+                                           1 2 3 4 5 N.A
+                                         </div>
+                                         <div class="clear_both"></div>
+                                       </div>
+                                       <div class="row_wrapper">
+                                         <div class="ex_cover2">
+                                             <div class="point">Care of infants/children<br>
+                                               Please specify age range:
+                                               {{maid_form.sg_child_age}}
+                                             </div>
+                                             <div>{{maid_form.ov_children}}</div>
+                                         </div>
+                                         <div class="clear_both"></div>
+                                       </div>
+
+                                       <div class="row_wrapper">
+                                         <div class="ex_cover2">
+                                             <div class="point">Care of elderly</div>
+                                             </div>
+                                             <div>{{maid_form.ov_elderly}}</div>
+                                         </div>
+                                         <div class="clear_both"></div>
+                                       </div>
+                                       <div class="row_wrapper">
+                                       <div class="ex_cover2">
+                                           <div class="point">Care of disabled</div>
+                                           </div>
+                                           <div>{{maid_form.ov_disabled}}</div>
+                                       </div>
+                                       <div class="clear_both"></div>
+                                     </div>
+                                     <div class="row_wrapper">
+                                       <div class="ex_cover2">
+                                           <div class="point">General housework</div>
+                                           </div>
+                                           <div>{{maid_form.ov_housework}}</div>
+                                           <div class="clear_both"></div>
+                                       </div>
+                                       <div class="ex_cover2">
+                                           <div class="point">Cooking <br>
+                                             Please specify cuisines: {{maid_form.ov_cook_cusine}}</div>
+                                           </div>
+                                           <div>{{maid_form.ov_cooking}}</div>
+                                       </div>
+                                       <div class="clear_both"></div>
+                                     </div>
+                                     <div class="row_wrapper">
+                                       <div class="ex_cover2">
+                                           <div class="point">Language abilities (spoken)<br>
+                                           Please specify: {{maid_form.ov_languages}}
+                                         </div>
+                                           </div>
+                                           <div>{{maid_form.ov_language}}</div>
+                                       </div>
+                                       <div class="clear_both"></div>
+                                     </div>
+                                     <div class="row_wrapper">
+                                       <div class="ex_cover2">
+                                           <div class="point">Other skills, if any<br>
+                                           Please specify: {{maid_form.ov_others}}
+                                         </div>
+                                           </div>
+                                           <div>{{maid_form.ov_other}}</div>
+                                       </div>
+                                       <div class="clear_both"></div>
+                                     </div>
+
+                                     </td>
+                                     </tr>
+                                     <tr align="left">
+                                      <td colspan="4" valign="top"><strong>EMPLOYMENT HISTORY OF THE FDW (Employment History Overseas)</strong></td>
+                                      </tr>
+                                      <tr align="left">
+                                       <td colspan="4" valign="top">
+                                          <table class="ex_table">
+                                            <thead>
+                                              <tr>
+                                                <td style="width: 170px;">
+                                                  Date
+                                                  <div style="border-top: 1px solid #000;">
+                                                      <div style="float: left; padding: 5px; width: 45%;">From</div>
+                                                      <div style="float: right; padding: 5px; width: 40%;">To</div>
+                                                  </div>
+                                                </td>
+                                                <td style="width: 100px;">Country (including FDW’s home country)</td>
+                                                <td style="width: 100px;">Employer</td>
+                                                <td style="width: 170px;">Work Duties</td>
+                                                <td style="width: 85px;">Remarks</td>
+                                              </tr>
+                                            </thead>
+                                            <tr>
+                                              <td colspan="5">{{maid_form.ov_history1}}</td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="5">{{maid_form.ov_history2}}</td>
+                                            </tr>
+                                       </td>
+                                       </tr>
+                                       <tr align="left">
+                                        <td colspan="4" valign="top"><strong>C2 Employment History in Singapore</strong></td>
+                                        </tr>
+                                        <tr align="left">
+                                          <td colspan="4" valign="top">
+                                            Previous working experience in Singapore {{maid_form.singapore_history}}
+                                            <p>(The EA is required to obtain the FDW’s employment history from MOM and furnish the employer with the employment history of
+the FDW. The employer may also verify the FDW’s employment history in Singapore through WPOL using SingPass)
+                                            </p>
+                                          </td>
+                                         </tr>
+                                         <tr align="left">
+                                          <td colspan="4" valign="top">
+                                            <strong>C3 Feedback from previous employers in Singapore</strong>
+                                            <p>Feedback was/was not obtained by the EA from the previous employers. If feedback was obtained (attach testimonial if possible),
+please indicate the feedback in the table below:</p>
+                                          </td>
+                                          </tr>
+                                          <div class="">
+                                      			<ol>
+                                      				<li>
+                                      					<table border="1" class="table" width="97%">
+                                      						<tr>
+                                      							<td style="width: 150px;"></td>
+                                      							<td>Feedback</td>
+                                      						</tr>
+                                      						<tr>
+                                      							<td>Employer 1</td>
+                                      							<td>{{maid_form.feedback1}}</td>
+                                      						</tr>
+                                      						<tr>
+                                      							<td>Employer 2</td>
+                                      							<td>{{maid_form.feedback2}}</td>
+                                      						</tr>
+                                      					</table>
+                                      				</li>
+                                      			</ol>
+                                      		</div>
+                                          <tr align="left">
+                                           <td colspan="4" valign="top">
+                                             <strong>(D) AVAILABILITY OF FDW TO BE INTERVIEWED BY PROSPECTIVE EMPLOYER</strong>
+                                             {{maid_form.fdw_availability}}
+                                           </td>
+                                           </tr>
+                                           <tr align="left">
+                                            <td colspan="4" valign="top">
+                                              <strong>(E) OTHER REMARKS</strong><br>
+                                              {{maid_form.other_remarks}}
+                                            </td>
+                                            </tr>
+
+
+
+                                </table>
+                             </div>
+                            <div style="padding:10px 0 0 0;" align="center">
+                              <input type="submit" name="agesub" id="agesub" value="Submit" class="regis_form_button" style="width: 100px;"/>
+                              </div>
+                            </form>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+                </table>
+              </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<tr>
+        <td class="content_body"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="70%" align="left" valign="top">
+                <div class="header_banner">
+                  {% if banner %}
+  									<div class="slider">
+  										{% for i in banner %}
+  											<img src="{{static}}/media/{{i.image}}" width="700" height="265"/>
+  										{% endfor %}
+  									</div>
+  								{% else %}
+                    <img src="{{static}}/media/images/banner_aboutus.jpg" alt="" width="700" height="265" />
+  								{% endif %}
+                </div>
+                <div class="inner_content">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td class="aboutus_bg">
+                      {% if about_content %}
+                        <h1>{{about_content.title|safe}}</h1>
+                        {{about_content.short_text|safe}}
+                      {% else %}
+                        <h1>About Us</h1>
+                      <p align="justify">With our vast experience in employment agency,   Axix Solutions had pioneered and   has been in the field of   both local and     foreign   employment and maids'   placement   services. Many families have       greatly benefited from our     services.</p>
+                        <p align="justify">Managed and served by our         dedicated and trained professional team, we   can be depended on to         provide fair and best packages rates which are   only surpassed by   our       integrity and commitment for customer care to   quality   service.</p>
+                        <p align="justify">With our years of experience,         we have successfully found employment   for countless foreign     domestic     helpers in Singapore and asia countries.   Providing     employment     placement services, care and concern towards those   who     needed     assistance.</p>
+                        <br />
+                        <ul>
+                          <li> Transfer  Maid </li>
+                          <li> New Maid from Indians and other nations </li>
+                          <li> MOM Bond  and Insurance for your maid </li>
+                          <li> Home  Leave </li>
+                          <li> Passport  Renewal </li>
+                        </ul>
+                      {% endif %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+                </table>
+              </div>
+{% endblock %}

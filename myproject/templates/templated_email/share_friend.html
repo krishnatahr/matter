@@ -1,0 +1,45 @@
+{% block subject %}Maid Details <a href="{{DOMAIN_URL}}/maid_profile/{{maids.pk}}">{{maids.name}}</a>{% endblock %}
+{% block html %}
+{% load ad_rotator_tags %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Singapore :: Maid Agency</title>
+<link href="{{DOMAIN_URL}}/media/css/main_style.css" rel="stylesheet" type="text/css" />
+<link href="{{DOMAIN_URL}}/media/css/sss.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<p>I am writing this letter to recommend <b>{{maids.name}}</b> for the position of Housemaid at your home.
+	I am sure that she will be a proven asset to your family.
+</p>
+<p>I a confident that  <b>{{maids.name}}</b> shall definitely turn out to be a very valuable asset to your home like she was to ours. Please feel free to contact me if you’d like supplementary information regarding her qualifications and skils.
+</p>
+
+		<h1>Agency Information</h1>
+		{% if maids.agency.agency_name %}
+			<p><b style="width: 130px; display: inline-block;">Agency Name</b>: {{maids.agency.agency_name}}</p>
+		{% endif %}
+		{% if maids.agency.address %}
+			<p><b style="width: 130px; display: inline-block;">Address</b>: {{maids.agency.address}}</p>
+		{% endif %}
+		{% if maids.agency.office_no %}
+			<p><b style="width: 130px; display: inline-block;">Phone Number</b>: {{maids.agency.office_no}}</p>
+		{% endif %}
+		{% if maids.agency.fax %}
+			<p><b style="width: 130px; display: inline-block;">Fax</b>: {{maids.agency.fax}}</p>
+		{% endif %}
+		{% if maids.agency.email %}
+			<p><b style="width: 130px; display: inline-block;">E-mail </b>: {{maids.agency.email}}</p>
+		{% endif %}
+		{% if maids.agency.website %}
+			<p><b style="width: 130px; display: inline-block;">Website</b>: {{maids.agency.website}}</p>
+		{% endif %}
+
+<br><br>
+<p>Best regards,</p>
+
+{{maids.agency.agency_name}}
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,15 @@
+{{object.name}}
+{{object.refcode}}
+{{object.types}}
+{{object.nationality}}
+{{object.religion}}
+{{object.mstatus}}
+{{object.no_of_child}}
+{{object.agepre}}
+{{object.education}}
+{{object.house}}
+{{object.young}}
+{{object.infant}}
+{{object.cook}}
+{{object.elder}}
+{{object.home}}

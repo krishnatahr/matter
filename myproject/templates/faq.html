@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% block content %}
+<tr>
+        <td class="content_body"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="70%" align="left" valign="top">
+                <div class="header_banner">
+                  {% if banner %}
+  									<div class="slider">
+  										{% for i in banner %}
+  											<img src="{{static}}/media/{{i.image}}" width="700" height="265"/>
+  										{% endfor %}
+  									</div>
+  								{% else %}
+                  <img src="{{static}}/media/images/banner_faq.jpg" alt="" width="700" height="265" />
+  								{% endif %}
+                </div>
+                <div class="inner_content">                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td class="aboutus_bg">
+                      {% if faq_content %}
+                        <h1>{{faq_content.title}}</h1>
+                      {% else %}
+                        <h1>FAQ</h1>
+                      {% endif %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+                  {% if faq_content %}
+                    <tr>
+                      <td>
+                      {{faq_content.short_text|safe}}
+                      </td>
+                    </tr>
+                  {% else %}
+                   <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="faq"><font color="red"><h5>Work Permit (Foreign Domestic Worker) - Before you apply<h5></font><br/></td>
+                      </tr>
+                      <tr>
+                          <td class="faq"><h2>Foreign Domestic Worker Requirements</h2></td>
+                      </tr>
+                       <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td class="faq"><h5>A Foreign Domestic Worker (FDW) must meet the following requirements:</h5>
+                            <ul style="padding-left:15px;">
+                              <li>Female</li>
+                              <li>From an approved source country/territory. These countries/territories include Bangladesh, Hong Kong, India, Indonesia, Macau, Malaysia, The Republic of the Union of Myanmar, Philippines, South Korea, Sri Lanka, Taiwan, and Thailand</li>
+                              <li>For first-time applicants: Aged 23 years or above, and below 50 years old at the time of the Work Permit application.</li>
+                              <li>Have a minimum eight years of formal education and possesses the necessary educational certificates as documentary proof of her education
+                                   <ul style="padding-left:15px;">
+                                     <li>Recognised educational certificates</li>
+                                     <li>List of recognised educational institutions</li>
+                                   </ul>
+                              </li>
+                              <li>Attend the Settling-in Programme (SIP) - if she is a first-time FDW in Singapore - within three working days of her arrival, excluding the day of arrival, and before the issuance of her Work Permit</li>
+	                      <li>Be employed at her employer's residential address as stated on her employer's Identity Card (NRIC)</li>
+                              <li>Not be related to her employer</li>
+                              <li>Not be in Singapore before an In-Principle Approval is given and a $5,000 Security Bond is furnished by the employer (applicable to non-Malaysian workers). This does not apply to a current Work Permit holder making a Work Permit application under a new employer in Singapore</li>
+                            </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                          <td style="border-bottom:#CCCCCC 1px dotted">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td class="faq"><h5>First-time Foreign Domestic Workers</h5></td>
+                        </tr>
+                        <tr>
+                          <td class="faq"><h5>A first-time FDW is one who has:</h5>
+                          <ul style="padding-left:15px;">
+                            <li>no employment record with MOM's Work Pass Division; or </li>
+                            <li>Work Permit records with MOM, but did not collect her Work Permit card previously. This includes those who have worked in Singapore for brief periods in the past, or who have applied for Work Permits but did not eventually work in Singapore.</li>
+                          </ul> <br/>
+                          (Above Source take from  <a href="http://www.mom.gov.sg" target="_blank">http://www.mom.gov.sg)</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="border-bottom:#CCCCCC 1px dotted">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td><h2>Hiring a maid? What you need to know!</h2></td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td class="faq"><h5>Part-Time Maid</h5>
+                          In Singapore, you may hire a maid full-time or part-time. A part-time maid usually do not stay in and she usually works once or twice a week for several hours a day. She has to be a citizen or permanent resident. There are a few agencies that provides this service.</td>
+                        </tr>
+                        <tr>
+                          <td style="border-bottom:#CCCCCC 1px dotted">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td class="faq"><h5>Full-Time Maid</h5>
+                            A full-time maid is usually referred as foreign domestic worker (FDW). Most of them comes from Indonesia, Philippines, Myanmar, India and Sri Lanka. Under MOM-Employers' guidelines, Employer are expected to provide basic needs such as food, a bed with mattress, a blanket, towels and toiletries, as well as a fan if the sleeping area has poor ventilation. Employer have to ensure that sufficient private space for sleep is provided for the FDW. Employers' guidelines can be found in www.mom.gov.sg<br/><br/>
+                            <b>The salary</b> ranges from $350-$500 per month for a new FDW with little or no experience. If the FDW has several years of experience in her own country or in other countries, her salary will be $20 to $100 more.</td>
+                        </tr>
+                        <tr>
+                          <td style="border-bottom:#CCCCCC 1px dotted">&nbsp;</td>
+                        </tr>
+                          <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td class="faq"><h5>Know the Cost in hiring a Maid</h5>
+                            Most Employer engage licensed employment agency to find a Maid. Very few does direct hiring. Direct hiring happen when the Employer finds his own Maid and does all his own arrangement. There is no fixed service fee if the Employer engage licensed employment agency to handle the legal paper works. The service fee ranges from $388 to as high as $1,400.<br/><br/>
+                            Different agency offer different type of services. Some agencies may offer lower service fee but may have other charges, for examples, extra cost for Maid's first medical check up, collection of work permit card and/or fee for Safety Awareness Course. There are agencies that charge higher service fee and include the full cost, such as air ticket, insurance, security bond, medical check up and all other miscellaneous cost. It is important for Employer to ask the details of the cost and check the terms and conditions of the agency.
+                            </td>
+                        </tr>
+                        <tr>
+                          <td style="border-bottom:#CCCCCC 1px dotted">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td width="33%" class="content">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td class="faq"><h5>Know the terms and conditions</h5>
+                            Employer should ask all the terms and condition before hiring a FDW. If possible, read the agreement and contract carefully before signing.
+                            </td>
+                        </tr>
+                        <tr>
+                          <td style="border-bottom:#CCCCCC 1px dotted">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td width="33%" class="content">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td class="faq"><h5>Check any guarantee and for how long the guarantee period</h5>
+                            Most agency cover guarantee period from 3 months to one year. The guarantee means employer can get a free replacement within that period. Also, you need to ask how many free replacement if the FDW is not suitable to work in the home. Most agency give one free replacement but there are agency that gives unlimited replacement.</td>
+                        </tr>
+                        <tr>
+                          <td style="border-bottom:#CCCCCC 1px dotted">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td width="33%" class="content">&nbsp;</td>
+                        </tr>
+                      </table></td>
+                    </tr>
+                    {% endif %}
+                </table>
+              </div>
+{% endblock %}

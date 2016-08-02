@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="{{static}}/media/js/jquery.validate.js"></script>
+<script>
+	$().ready(function() {
+
+		// validate signup form on keyup and submit
+		$("#agencyreg").validate({
+			rules: {
+				username: {
+					required: true,
+					minlength: 2
+				},
+				password: {
+					required: true,
+					minlength: 5
+				},
+				email: {
+					required: true,
+					email: true
+				},
+			},
+			messages: {
+				username: {
+					required: "Please enter a username",
+					minlength: "Your username must consist of at least 2 characters"
+				},
+				password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long"
+				},
+				email: "Please enter a valid email address",
+			}
+		});
+	});
+</script>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="70%" align="left" valign="top">
+							<div class="header_banner">
+								<img src="{{static}}/media/images/agency_header.jpg" alt="" width="700" height="265" />
+							</div>
+							<div class="inner_content">                
+															
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										  <tbody>
+										  <tr>
+											<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+											  <tbody>
+											  <tr>
+												<td valign="top" style="background:url(images/round_box4_center.jpg) repeat-y center; padding:10px;"><table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
+													<tbody><tr>
+													  <td class="inner_title"><h2>New Agency Registration</h2></td>
+													</tr>
+													<tr>
+													  <td>
+													  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+														  <tbody><tr>
+															<td>&nbsp;</td>
+														  </tr>
+														  <tr>
+															<td class="txt1" style="border-bottom:#CCCCCC 1px solid; padding-bottom:15px;">To register with us, fill in the relevant information in the mandatory fields below, alternatively, you may mail / call / fax to us the same for approval. Based on the information received, our authorized technical person / sales executive shall organize an on-site demo at your convenient time at your office if need be.</td>
+														  </tr>
+														  <tr>
+															<td>
+															<form name="agencyreg" id="agencyreg" action="." method="post" enctype="multipart/form-data">
+																{% csrf_token %}
+															<div class="regis_topbox">
+																<div>
+																  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="regis_form_txt">
+																																			<tbody><tr>
+																	  <td width="16%" valign="top">User Name<span class="mantory">* </span></td>
+																	  <td class="label"><p><input name="username" type="text" class="regis_form_txtarea" id="username" value=""><br></p></td>
+																		<td></td>
+																	  </tr>
+																	<tr>
+																	  <td valign="top">Password<span class="mantory">* </span></td>
+																	  <td><p><input name="password" type="password" class="regis_form_txtarea" id="password" value=""><br></p></td>
+																	  <td></td>
+																	  </tr>
+																	<tr>
+																	  <td width="18%" valign="top">Agency Name<span class="mantory">* </span></td>
+																	  <td width="48%"><p><input name="agency_name" type="text" class="regis_form_txtarea" id="aname" value="" maxlength="60"><br></p>
+																	   <span>E.g : ABC Maid Agency Pte Ltd</span></td>
+																	  <td width="34%"></td>
+																	</tr>
+																	 <tr>
+																	  <td width="18%" valign="top">Licence No<span class="mantory">* </span></td>
+																	  <td width="48%"><p><input name="licence_no" type="text" class="regis_form_txtarea" id="licence" value="" maxlength="60"><br></p>
+																	  <span>E.g : 11C1111</span>
+																	  </td>
+																	  <td width="34%"></td>
+																	</tr>
+																	<tr>
+																	  <td valign="top">Upload Logo</td>
+																	  <td colspan="2">
+																		  <input id="id_image" type="file" class="" name="logo">
+																		  <div id="upload">Select Your Agency Logo</div><br>
+																		  <span>Note: PNG, JPEG, GIF, or BMP only.</span><br>
+																													<input type="hidden" name="imgpath" id="imgpath" value="">
+																													<div id="upload_area"><img src="{{static}}/media/images/agency_logo.jpg" alt="" width="152" height="130"></div><br>
+																		  <span>For best view Width=152 height=130</span><br>
+																		  <span>Your uploaded logo will appear in the Agency Directory and in your agency pages.</span> <br>
+																		 <p><input type="checkbox" name="thirdparty" id="thirdparty" value="yes">
+																		  <span style="color:#333333">I / we acknowledge and declare that the logo/image is our own and complies with all the necessary documentations and does not infringe upon any third party copyrights and trademarks of any sort that may otherwise violate the User Agreement. </span><br></p><p></p></td>
+																	</tr>
+																	  <tr>
+																	  <td valign="top">Address</td>
+																	  <td><textarea name="address" rows="3" class="regis_form_txtarea" id="address"></textarea></td>
+																	  <td>&nbsp;</td>
+																	</tr>
+																	<tr>
+																	  <td valign="top">Office No<span class="mantory">* </span></td>
+																	  <td><p><input name="office_no" type="text" class="regis_form_txtarea" id="phone" value="" maxlength="10"><br></p>
+																	  <span>E.g : 66666666</span>
+																	  </td>
+																	  <td></td>
+																	</tr>
+																	<tr>
+																	  <td valign="top">Fax</td>
+																	  <td><input name="fax" type="text" class="regis_form_txtarea" id="fax" onkeypress="return isNumberKey(event)" value="" maxlength="10">
+																	  <span>E.g : 66666666</span>
+																	  </td>
+																	  <td>&nbsp;</td>
+																	</tr>
+																	<tr>
+																	  <td valign="top">Contact Person<span class="mantory">* </span></td>
+																	  <td><p><input name="contact_person" type="text" class="regis_form_txtarea" id="cname" value="" maxlength="50"><br></p>
+																	  <span>E.g : Mr.John</span></td>
+																	  <td></td>
+																	</tr>
+																	<tr>
+																	  <td valign="top">Mobile</td>
+																	  <td><p><input name="mobile" type="text" class="regis_form_txtarea" id="mobile" value="" maxlength="10"></p>
+																	  <span>E.g : 66666666</span>
+																	  </td>
+																	  <td>&nbsp;</td>
+																	</tr>
+																	 <tr>
+																	  <td valign="top">Email Address<span class="mantory">* </span></td>
+																	  <td><p><input name="email" type="text" class="regis_form_txtarea" id="email" value="" maxlength="50"><br></p>                                      </td>
+																	  <td></td>
+																	</tr>
+																	<tr>
+																	 <td valign="top" nowrap="">2<sup>nd</sup> Contact Person</td>
+																	 <td><p><input name="second_contact_person" type="text" class="regis_form_txtarea" id="pname" value="" maxlength="60"><br></p>
+																	 <span>E.g : Mr.James</span>
+																	 </td>
+																	 <td>&nbsp;</td>
+																	</tr>
+																	<tr>
+																	 <td valign="top">2<sup>nd</sup> Mobile No</td>
+																	 <td><p><input name="second_mobile_no" type="text" class="regis_form_txtarea" id="pno" value="" maxlength="60"><br></p>
+																	 <span>E.g : 66666666</span>
+																	 </td>
+																	 <td>&nbsp;</td>
+																	</tr>
+																	<tr>
+																	 <td valign="top">2<sup>nd</sup> Email</td>
+																	 <td><p><input name="second_Email" type="text" class="regis_form_txtarea" id="pemail" value="" maxlength="60"><br></p>
+																	 </td>
+																	 <td>&nbsp;</td>
+																	</tr>
+																	<tr>
+																	  <td valign="top">Website Address</td>
+																	  <td><p><input type="text" name="website" id="website" value="" class="regis_form_txtarea"></p>
+																	  <span>E.g : www.maidwala.com</span>
+																		  <br>
+																		  <input type="checkbox" name="nowebsite" id="nowebsite" value="yes" onclick=" return noweb();">
+																		  <span>If you have no website, please select the checkbox</span></td>
+																	  <td></td>
+																	</tr>
+																	<tr>
+																	  <td valign="top">Office Hours</td>
+																	  <td><input name="office_hours" type="text" class="regis_form_txtarea" id="hours" value="" maxlength="20"><br>
+																	  <span>E.g : 9:00 AM - 6.30 PM</span></td>
+																	  <td>&nbsp;</td>
+																	</tr>
+																	<tr>
+																	  <td valign="top">Description</td>
+																	  <td><textarea name="description" rows="3" class="regis_form_txtarea" id="desc"></textarea>
+																		<br>
+																		<span>Note: Enter a brief description about your agency.</span></td>
+																	  <td></td>
+																	</tr>
+																</tbody>
+																</table>
+																  
+																</div>
+															</div>
+																							<div style="padding:10px 0 0 0;">
+																  <input type="submit" name="agesub" id="agesub" value="Submit" class="regis_form_button">
+															  </div>
+																							 </form>
+															  </td>
+														  </tr>
+													  </tbody></table></td>
+													</tr>
+													<tr>
+													  <td>&nbsp;</td>
+													</tr>
+												</tbody></table></td>
+											  </tr>
+											</tbody></table></td>
+										  </tr>
+										</tbody></table>							
+							</div><!--inner_content-->
+{% endblock %}

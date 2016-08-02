@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+	<tr>
+        <td class="content_body">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="70%" align="left" valign="top">
+							<div class="header_banner">
+								{% if banner %}
+									<div class="slider">
+										{% for i in banner %}
+											<img src="{{static}}/media/{{i.image}}" width="700" height="265"/>
+										{% endfor %}
+									</div>
+								{% else %}
+									<img src="{{static}}/media/images/banner_home.jpg" alt="" width="700" height="265" />
+								{% endif %}
+							</div>
+							<div class="inner_content">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+									  <td class="aboutus_bg">
+											{% if home_content %}
+												<h1>{{home_content.title}}</h1>
+												{{home_content.short_text|safe}}
+											{% else %}
+												<h1>Welcome to Globaltech HR(S) Pte Ltd</h1>
+												<p><strong>Globaltech HR(S) Pte Ltd </strong>&nbsp;is a licensed employment agency&nbsp;by the <strong>Ministry of Manpower (License No: 08C3357) </strong>and &nbsp;Accredited by&nbsp;the Embassy of the <strong>Republic of Indonesia Singapore</strong>.&nbsp;</p>
+												<p>Our aim at <strong>Globaltech HR(S) Pte Ltd </strong> is to provide you with the perfect helper&nbsp;&nbsp;for your household!&nbsp;We provide our customers with a one stop solution of identifying the potential helpers for you.&nbsp;</p>
+												<p>We are constantly expanding our services and improving ourselves&nbsp;in both the domestic and corporate domains to address your evolving needs and preferences.&nbsp;</p>
+												<p>Our staffs is committed to serve you at the best of your interest and&nbsp;provide you with the right choice of domestic helper for your home and family.We will conduct an extensive background checks, interview sessions, health screening and work history verifcations of the helpers before they are available for your selection.</p>
+												<p>Additionally, all FDWs go through additional in-house training in Singapore and Indonesia&nbsp;to train and equipt themselves for better understanding of what is expected from them.</p>
+												<p>Our goal is to achieve customer satisfaction and&nbsp;to become more efficient in our business operation as a way to increase our services towards our clients.</p>
+												<p>We love &nbsp;to go the&nbsp;EXTRA MILE&nbsp;to render Our Service to You...&nbsp;</p>
+											  <p align="justify">&nbsp;</p>
+										  {% endif %}										</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+									</tr>
+									<tr>
+										<td>
+											<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+												<tr>
+													<td class="title1">Most Recent Maids</td>
+												</tr>
+												<tr>
+													<td valign="top">&nbsp;</td>
+												</tr>
+												<tr>
+													<td valign="top">
+														<table width="100%" border="0" cellspacing="0" cellpadding="0">
+															<tr>
+																{% for i in maid %}
+																	<td>
+																		<a href="/maid_profile/{{i.pk}}/" class="maid_box_link">
+																			<div class="maid_box1">
+																				<img src="{{static}}/media/{{i.image}}" alt="" width="98" height="123" /><br />
+																				<h1>{{i.name}}</h1>
+																				<h2>{{i.nationality}}</h2>
+																				<h3>{{i.agency.agency_name}}</h3>
+																				<span class="star">
+																					<img src="{{static}}/media/images/star_icon.gif" alt="" />
+																					<img src="{{static}}/media/images/star_icon.gif" alt="" />
+																					<img src="{{static}}/media/images/star_icon.gif" alt="" />
+																					<img src="{{static}}/media/images/star_icon.gif" alt="" />
+																					<img src="{{static}}/media/images/star_icon.gif" alt="" />
+																				</span>
+																			</div>
+																		</a>
+																	</td>
+																	{% if forloop.counter|divisibleby:"4" %}
+														  </tr>
+																<tr>
+																	{% endif %}
+																	{% endfor %}
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+									</tr>
+								</table>
+							</div>
+{% endblock %}

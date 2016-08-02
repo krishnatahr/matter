@@ -1,0 +1,165 @@
+<table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tbody><tr>
+                      <td class="inner_title">Update Agency Account</td>
+                    </tr>
+                    <tr>
+                      <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tbody><tr>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>
+                            <form name="agencyreg" id="agencyreg" method="post" enctype="multipart/form-data" action="">
+                            <input type="hidden" name="id" value="1">
+                            <div class="regis_topbox">
+                                <div>
+                                  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="regis_form_txt">
+                                  
+                                    								                                        <tbody><tr>
+                                      <td width="16%" valign="top">User Name<span class="mantory">* </span></td>
+                                      <td class="label"><input name="uname" type="text" class="regis_form_txtarea" id="uname" onkeyup="return req_fileld();" value="Axix " maxlength="10" readonly="readonly">
+                                      <br> <span>Note : User name should be 8 characters</span>
+                                      </td>
+                                        <td><label style="display: none;" class="error" id="error1">Please enter username</label></td>
+                                      </tr>
+                                    <tr>
+                                      <td valign="top">Password<span class="mantory">* </span></td>
+                                      <td><input name="pass" type="password" class="regis_form_txtarea" id="pass" onkeyup="return req_fileld();" value="dalip" maxlength="8">
+                                      <br><span>Note : Password should be 5 characters</span>
+                                      </td>
+                                      <td><label style="display: none;" class="error" id="error2">Please enter password</label></td>
+                                      </tr>
+                                    <tr>
+                                      <td width="18%" valign="top">Agency Name<span class="mantory">* </span></td>
+                                      <td width="48%"><input name="aname" type="text" class="regis_form_txtarea" id="aname" onkeyup="return req_fileld();" value="Axix Solutions Pte Ltd" maxlength="60">
+                                          <br><span>E.g : ABC Maid Agency Pte Ltd</span></td>
+                                      <td width="34%"><label style="display: none;" class="error" id="error3">Please enter agency name</label></td>
+                                    </tr>
+                                    <tr>
+                                      <td valign="top">Licence No<span class="mantory">* </span></td>
+                                      <td><input type="text" name="licence" id="licence" value="10C4112" class="regis_form_txtarea" onkeyup="return req_fileld();">
+                                      <br> <span>E.g : 11c1111</span>
+                                      </td>
+                                      <td><label style="display: none;" class="error" id="error9">Please enter agency licence number</label></td>
+                                    </tr>
+                                    <tr>
+                                      <td valign="top">Upload Logo</td>
+                                      <td colspan="2">
+										  <div id="upload">Select Your Agency Logo</div><br>
+                                           <span>Note: PNG, JPEG, GIF, or BMP only.</span><br>
+                                          <div id="upload_area"><img src="agency/axix_logo_13561_1358165373.jpg" alt="" width="152" height="130"><input type="hidden" name="imgpath" id="imgpath" value="agency/axix_logo_13561_1358165373.jpg">                                          
+                                          </div><br>
+                                          <span>For best view Width=152 height=130</span><br>
+                                          <span>Your logo will appear in the Agency Directory and on your agency pages.</span> <br>
+                                          <input type="checkbox" name="thirdparty" id="thirdparty" value="yes" checked="">
+                                          <span style="color:#333333">I acknowledge and agree that the logo/image I am uploading does not infringe upon any third party copyrights, trademarks, or other proprietary rights or otherwise violate the User Agreement.</span></td>
+                                    </tr>
+                                     <tr>
+                                      <td valign="top">Address</td>
+                                      <td><textarea name="address" rows="3" class="regis_form_txtarea" id="address">320 Serangoon Road #04-45 Serangoon Plaza Singapore - 218108</textarea></td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <td valign="top">Office No<span class="mantory">* </span></td>
+                                      <td><input type="text" name="phone" id="phone" class="regis_form_txtarea" value="93267414" onkeypress="return isNumberKey(event)" onkeyup="return req_fileld();">
+                                      <br><span>E.g : 66666666</span>
+                                      </td>
+                                      <td><label style="display: none;" class="error" id="error5">Please enter contact number</label></td>
+                                    </tr>
+                                    <tr>
+                                      <td valign="top">Fax</td>
+                                      <td><input name="fax" type="text" class="regis_form_txtarea" id="fax" onkeypress="return isNumberKey(event)" value="62999995" maxlength="10">
+                                      <br><span>E.g : 66666666</span>
+                                      </td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <td valign="top">Contact Person<span class="mantory">* </span></td>
+                                      <td><input name="cname" type="text" class="regis_form_txtarea" id="cname" onkeyup="return req_fileld();" value="Dalip Kaur" maxlength="15">
+                                      <br><span>E.g : Mr.John</span>
+                                      </td>
+                                      <td><label style="display: none;" class="error" id="error4">Please enter contact person name</label></td>
+                                    </tr>
+                                    <tr>
+                                      <td valign="top">Mobile</td>
+                                      <td><input name="mobile" type="text" class="regis_form_txtarea" id="mobile" value="93267414" maxlength="10">
+                                      <br><span>E.g : 66666666</span>
+                                      </td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <td valign="top">Email Address<span class="mantory">* </span></td>
+                                      <td><input name="email" type="text" class="regis_form_txtarea" id="email" onkeyup="return req_fileld();" value="maidaxix@yahoo.com.sg" maxlength="50">
+                                      </td>
+                                      <td><label style="display: none;" class="error" id="error6">Please enter valid email id</label></td>
+                                    </tr>
+                                      <tr>
+                                     <td valign="top" nowrap="">2<sup>nd</sup> Contact Person</td>
+                                     <td><p><input name="pname" type="text" class="regis_form_txtarea" id="pname" value="" maxlength="60"><br></p>
+                                     <span>E.g : Mr.James</span>
+                                     </td>
+                                     <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                     <td valign="top">2<sup>nd</sup> Mobile No</td>
+                                     <td><p><input name="pno" type="text" class="regis_form_txtarea" id="pno" value="" maxlength="60"><br></p>
+                                     <span>E.g : 66666666</span>
+                                     </td>
+                                     <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                     <td valign="top">2<sup>nd</sup> Email</td>
+                                     <td><p><input name="pemail" type="text" class="regis_form_txtarea" id="pemail" value="" maxlength="60"><br></p>
+                                     </td>
+                                     <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <td valign="top">Website Address</td>
+                                      <td><input type="text" name="website" id="website" value="http://www.axix.com.sg" class="regis_form_txtarea" onkeyup="return req_fileld();">
+                                          <br>
+                                          <input type="checkbox" name="nowebsite" id="nowebsite" value="yes" disabled="" onclick=" return noweb();">
+                                          <span>If you have no website tick the check box</span></td>
+                                      <td><label style="display: none;" class="error" id="error7">Please enter valid website url</label></td>
+                                    </tr>
+                                    <!--<tr>
+                                      <td valign="top">Contact me by</td>
+                                      <td colspan="2"><select name="contctby" size="1" class="regis_form_txtarea" id="contctby">
+                                      <option value="email" >Email</option>
+                                      <option value="sms" >SMS</option>
+                                      </select></td>
+                                    </tr>-->
+                                    <tr>
+                                      <td valign="top">Office Hours</td>
+                                      <td><input name="hours" type="text" class="regis_form_txtarea" id="hours" value="09:30 AM to 5:30PM" maxlength="20">
+                                      <br><span>E.g : 9:00 AM - 6.30 PM</span>
+                                      </td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <!--<tr>
+                                      <td valign="top">Number of maid</td>
+                                      <td><input name="nom" type="text" class="regis_form_txtarea" id="nom" onkeypress="return isNumberKey(event)" value="37" maxlength="5" /></td>
+                                      <td>&nbsp;</td>
+                                    </tr>-->
+                                    <tr>
+                                      <td valign="top">Description</td><!-- onkeyup="return req_fileld();"-->
+                                      <td><textarea name="desc" rows="3" class="regis_form_txtarea" id="desc">Axix Solutions Pte Ltd is a reputed licensed employment agency [10C4112] under the Ministry of Manpower, Singapore. Our Co. is specialized in recruitment of Foreign Domestic Workers from different Nations .</textarea>
+                                          <br>
+                                        <span>Note: Enter a brief description about your agency.</span></td>
+                                      <td><label style="display: none;" class="error" id="error8">Please enter description</label></td>
+                                    </tr>
+                                                                    </tbody></table>
+								  
+                                </div>
+                            </div>
+							                                <div style="padding:10px 0 0 0;">
+                                  <input type="submit" name="agesub" id="agesub" value="Submit" class="regis_form_button" onclick="return req_fileld();">
+                              </div>
+                                                            </form>
+                              </td>
+                          </tr>
+                      </tbody></table></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                    </tr>
+                </tbody></table>

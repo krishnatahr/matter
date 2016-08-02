@@ -1,0 +1,37 @@
+/** Simple modifications needed for DropDownCheckList to take advantage of ThemeRoller settings */
+.ui-dropdownchecklist .ui-widget-content
+, .ui-dropdownchecklist .ui-widget-header {
+	border: none;
+	width:300px;
+}
+.ui-dropdownchecklist-indent {
+	padding-left: 5px;
+}
+/* Font size of 0 on the -selector and an explicit medium on -text required to eliminate 
+   descender problems within the containers and still have a valid size for the text */
+.ui-dropdownchecklist-selector-wrapper
+, .ui-widget.ui-dropdownchecklist-selector-wrapper {
+	vertical-align: middle;
+	font-size: 0px;
+	width:300px;
+}
+.ui-dropdownchecklist-selector {
+	padding: 2px 2px 2px 5px;
+	font-size: 0px;
+}
+.ui-dropdownchecklist-text {
+font-size:12px;
+width:250px;
+}
+.ui-dropdownchecklist-item
+, .ui-dropdownchecklist-item input {
+    vertical-align: middle;
+	background:#efefef;
+	border:#d8d7d7 1px solid; border-top:none;
+	font-size:12px; padding:0 0px 0 9px; line-height:30px;
+	font-family:Arial, Helvetica, sans-serif;
+	
+}
+.ui-dropdownchecklist-group {
+	padding: 2px 2px 2px 2px;
+}

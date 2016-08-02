@@ -1,0 +1,164 @@
+.sss {
+	height: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+.ssslide {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	overflow: hidden;
+}
+
+.ssslide img {
+	max-width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	display: block;
+}
+
+.sssnext, .sssprev {
+	width: 25px;
+	height: 100%;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	background: url('images/arr.png') no-repeat;
+}
+
+.sssprev {
+	left: 3%;
+	background-position: 0 50%;
+}
+
+.sssnext {
+	right: 3%;
+	background-position: -26px 50%;
+}
+
+.sssprev:hover, .sssnext:hover {
+	cursor: pointer;
+}
+ol {
+	margin: 0px;
+	padding: 0px;
+}
+.section {
+	padding-bottom: 10px;
+}
+.header_profile h3{
+	text-align: center;
+	font-size: 14px;
+	line-height: 30px;
+	font-weight: bold;
+}
+ .header_profile span {
+	font-size: 11px;
+	line-height: 30px;
+}
+.section h3{
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 30px;
+}
+.section h3 u, .section h5 span{
+	padding-left: 20px;
+}
+.section h5{
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 30px;
+}
+.section .left {
+	float: left;
+	width: 450px;
+}
+.section .right {
+	float: left;
+	width: 216px;
+	height: 325px;
+	border: 1px solid #000;
+}
+.section li {
+	font-size: 13px;
+	list-style: none;
+	line-height: 30px;
+}
+.dob {
+	display: inline;
+}
+.dob span{
+	border: 1px solid;
+	margin-right: 1px;
+	padding: 4px 6px;
+	color: #000 !important;
+}
+.photo {
+	padding: 2px;
+	width: 210px;
+}
+.photo img {
+	width: 100%;
+}
+.clear_both {
+	clear: both;
+}
+.grid_points ul {
+	float: left;
+	margin-left: 30px;
+}
+.grid_points li {
+	line-height: 25px;
+}
+.yes, .no {
+	margin: 7px 35px 0px 40px;
+	float: right;
+}
+.food ul li {
+	float: left;
+	margin-right: 80px;
+}
+.interview {
+	margin-left: 30px;
+}
+b {
+	font-weight: bold;
+}
+.table th {
+	text-align: center;
+}
+.table {
+	border: 1px solid #999;
+}
+.table td, .table th {
+	line-height: 15px;
+}
+.table th {
+	border: 1px solid #999;
+	background: #ccc;
+	padding: 5px;
+}
+.table td {
+	border: 1px solid #999;
+	padding: 5px;
+}
+.endpoints {
+	margin: 10px 0px 0px 50px;
+}
+.endpoints li{
+	list-style: circle;
+	line-height: 23px;
+}
+.grid_points ul li {
+	list-style: none !important;
+}
